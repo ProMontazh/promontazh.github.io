@@ -26,7 +26,6 @@
     align-items: center;
     position: relative; /* Для абсолютного позиционирования герба */
         }
-
         /* Стили для герба Украины */
         .ukraine-emblem {
             position: absolute;
@@ -37,13 +36,10 @@
             z-index: 1000; /* Поверх остальных элементов */
             opacity: 0.0; /* Полупрозрачность */
         }
-
         .ukraine-emblem img {
             width: 100%;
             height: auto;
         }
-
-
         /* Анімація для плавної появи тексту */
         @keyframes fadeInText {
             20% {
@@ -55,7 +51,6 @@
                 transform: translateY(0); /* Повертаємо на місце */
             }
         }
-
         /* Застосування анімації до назви компанії */
         .company-name {
             font-size: 2.4rem;
@@ -63,7 +58,6 @@
             opacity: 0; /* Спочатку невидимий */
             animation: fadeInText 3s ease-in-out forwards; /* Плавна поява протягом 3 секунд */
         }
-
         /* Анімація для появи телефонів справа наліво */
         @keyframes slideInFromRight {
             20% {
@@ -75,7 +69,6 @@
                 transform: translateX(0); /* Телефони переміщуються на своє місце */
             }
         }
-
         /* Застосування анімації до телефонів з затримкою */
         .company-phone {
             font-size: 1.0rem; /* Зменшено розмір шрифту */
@@ -86,12 +79,10 @@
             animation: slideInFromRight 2s ease-in-out forwards; /* Анімація появи справа наліво */
             animation-delay: 5.5s; /* Затримка 6 секунди */
         }
-
         .company-phone a {
             color: #f44336; /* Червоний колір для посилань */
             text-decoration: none;
         }
-
         .company-description {
             font-size: 0.9rem; /* Зменшено розмір шрифту */
             margin-top: 10px;
@@ -309,14 +300,11 @@
         <h3>Охоронну сигналізацію</h3>
         <p>Комплексні системи охорони, захистят від несанкціонованого проникнення.</p>
     </div>
-    
-</section>
-
+    </section>
 <section class="about">
     <h2>Про компанію <span class="red">Pro</span><span class="black">Монтаж</span></h2>
     <p>Наша компанія займається професійним встановленням систем безпеки. Ми пропонуємо індивідуальні рішення для бізнесу і приватних клієнтів, гарантуючи високу якість та надійність.</p>
 </section>
-
 <section class="contact">
     <h2>Наші контакти:</h2>
     <p class="company-phone">
@@ -331,19 +319,16 @@
     <a href="mailto:promontazh.kharkiv@ukr.net?subject=Запит%20на%20послугу&body=" class="btn">promontazh.kharkiv@ukr.net</a>
     </div>
 </section>
-
 <footer>
     <p>&copy; 2024 <span class="red">Pro</span><span class="black">Монтаж.</span> Всі права захищені.</p>
 </footer>
 <script>
     // Получаем все элементы заголовков услуг
     const serviceHeaders = document.querySelectorAll('.service-item h3');
-
     // Добавляем событие клика на каждый заголовок
     serviceHeaders.forEach(header => {
         header.addEventListener('click', () => {
             const serviceItem = header.parentElement;
-
             // Переключаем класс active для отображения/скрытия описания
             serviceItem.classList.toggle('active');
         });
