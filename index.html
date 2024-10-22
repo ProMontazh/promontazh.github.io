@@ -12,8 +12,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            
-        }
+            }
 
         /* Для мобільних пристроїв */
         @media (max-width: 768px) {
@@ -29,20 +28,6 @@
     justify-content: space-between;
     align-items: center;
     position: relative; /* Для абсолютного позиционирования герба */
-        }
-        /* Стили для герба Украины */
-        .ukraine-emblem {
-            position: absolute;
-            top: 15px; /* Отступ от верхнего края */
-            right: 15px; /* Отступ от правого края */
-            width: 75px; /* Размер изображения */
-            height: auto;
-            z-index: 1000; /* Поверх остальных элементов */
-            opacity: 0.0; /* Полупрозрачность */
-        }
-        .ukraine-emblem img {
-            width: 100%;
-            height: auto;
         }
         /* Анімація для плавної появи тексту */
         @keyframes fadeInText {
@@ -123,7 +108,7 @@
                 background-image: url('fon-mobile.jpg'); /* Фонове зображення для мобільної версії */
                 background-size: cover;
                 background-position: center; /* Центрування фону */
-                height: 25vh; /* Висота 33% від висоти вікна */
+                height: 33vh; /* Висота 33% від висоти вікна */
                 padding: 20px; /* Відступи всередині секції */
             }
         }
@@ -283,11 +268,7 @@
             <a href="tel:+380662904960">066-290-49-60</a>
         </p>
     </div>
-    <!-- Герб Украины -->
-    <div class="ukraine-emblem">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg" alt="Герб України">
-    </div>
-</header>
+    </header>
 
 <section class="hero">
     <h2>Захисти свій дім та бізнес разом з <span class="red">Pro</span><span class="black">Монтаж</span></h2>
