@@ -16,7 +16,16 @@
         }
 
         /* Для мобільних пристроїв */
-        @media (max-width: 768px) {}
+        @media (max-width: 768px) {
+    .service-item h3 {
+        margin-top: -20px; /* Поднимаем заголовки на 20px */
+        font-size: 1.4rem; /* Увеличиваем размер шрифта для мобильной версии */
+    }
+
+    .service-item p {
+        font-size: 0.9rem; /* Можно уменьшить шрифт текста описания для мобильной версии */
+    }
+}
     header {
     background: linear-gradient(to right, #222222, #dadada); /* Градиентный фон */
     color: white;
