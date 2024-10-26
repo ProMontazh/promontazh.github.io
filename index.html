@@ -88,32 +88,24 @@
         }
 
         .hero {
-            background-color: rgba(0, 0, 0, 0.05); /* Полупрозрачный черный фон */
-            background-image: url('fon-.jpg'); /* Фонове зображення */
-            
-            background-size: cover; /* Розмір фону */
-            background-position: center; /* Центрування фону */
-            height: 33vh; /* Висота 33% від висоти вікна */
-            text-align: center;
-            color: rgb(29, 29, 29);
-            position: relative;
-            animation: fadeIn 2s ease-in-out;
-            padding: 20px; /* Відступи всередині секції */
-        }
+    background-image: url('fon-.jpg'); /* Основное изображение для ПК */
+    background-size: cover;
+    background-position: center;
+    height: 33vh;
+    text-align: center;
+    color: rgb(29, 29, 29);
+    position: relative;
+    animation: fadeIn 2s ease-in-out;
+    padding: 20px;
+}
 
-        @media (max-width: 768px) 
-        {       .services h2 {
-                margin-top: +5px; /* Поднимаем заголовок на 20px */
-                font-size: 1.4rem; /* Можно увеличить размер шрифта для лучшей видимости на мобильных устройствах */
-               } } {
-            .hero {
-                background-image: url('fon.mobile.jpg'); /* Оптимизированное изображение для мобильных устройств */
-                background-size: cover;
-                background-position: center; /* Центрування фону */
-                height: 33vh; /* Висота 33% від висоти вікна */
-                padding: 20px; /* Відступи всередині секції */
-            }
-        }
+@media (max-width: 768px) {
+    .hero {
+        background-image: url('fon-mobile.jpg'); /* Оптимизированное изображение для мобильных устройств */
+        background-size: cover;
+        background-position: center;
+    }
+}
 
         @keyframes fadeIn {
             from { opacity: 0; }
