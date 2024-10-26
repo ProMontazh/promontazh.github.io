@@ -17,7 +17,7 @@
             }
 
         /* Для мобільних пристроїв */
-        @media (max-width: 1000px) {
+        @media (max-width: 768px) {
         .service-item p {
         font-size: 0.9rem; /* Можно уменьшить шрифт текста описания для мобильной версии */
     }
@@ -101,13 +101,13 @@
             padding: 20px; /* Відступи всередині секції */
         }
 
-        @media (max-width: 1000px) 
+        @media (max-width: 768px) 
         {       .services h2 {
                 margin-top: +10px; /* Поднимаем заголовок на 20px */
                 font-size: 1.4rem; /* Можно увеличить размер шрифта для лучшей видимости на мобильных устройствах */
                } } {
             .hero {
-                background-image: src="fon.mobile.jpg" /* Фонове зображення для мобільної версії */
+                background-image: url('fon-mobile.jpg'); /* Оптимизированное изображение для мобильных устройств */
                 
                 background-size: cover;
                 background-position: center; /* Центрування фону */
