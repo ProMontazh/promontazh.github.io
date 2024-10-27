@@ -144,15 +144,14 @@
         }
 
         .hero p {
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             font-family: 'Open Sans', sans-serif; /* Новый шрифт */
             color: white; /* Изменяем цвет текста на белый */
-            
-            margin-top: 10px; /* Убираем отступ сверху */
+            margin-top: 10px;
             animation: slideUp 1.5s ease-in-out;
-        }
-
-        @keyframes slideUp {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Добавлена тень */
+            }
+            @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
