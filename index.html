@@ -29,7 +29,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* Для абсолютного позиционирования герба */
+    .logo {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    width: 60px; /* Размер логотипа, можно изменить по необходимости */
+    height: auto;
+}
+    role="banner"
         }
         /* Анімація для плавної появи тексту */
         @keyframes fadeInText {
@@ -75,7 +82,7 @@
             text-decoration: none;
         }
         .company-description {
-            font-size: 0.9rem; /* Зменшено розмір шрифту */
+            font-size: 0.8rem; /* Зменшено розмір шрифту */
             margin-top: 10px;
             color: white; /* Білий колір тексту */
         }
@@ -90,7 +97,8 @@
 
         .hero {
             background-color: rgba(0, 0, 0, 0.05); /* Полупрозрачный черный фон */
-            background-image: url('fon-.jpg'); /* Фонове зображення */
+            background-image: url('kharkiv.jpg'); /* Фонове зображення */
+            background-image: url('fon3.jpg'); /* Фонове зображення */
             background-size: cover; /* Розмір фону */
             background-position: center; /* Центрування фону */
             height: 33vh; /* Висота 33% від висоти вікна */
@@ -99,18 +107,17 @@
             position: relative;
             animation: fadeIn 2s ease-in-out;
             padding: 20px; /* Відступи всередині секції */
-        }
-
+            }
         @media (max-width: 768px) 
         {       .services h2 {
                 margin-top: +10px; /* Поднимаем заголовок на 20px */
                 font-size: 1.4rem; /* Можно увеличить размер шрифта для лучшей видимости на мобильных устройствах */
-               } } {
+               } } 
             .hero {
-                background-image: url('fon-mobile.jpg'); /* Фонове зображення для мобільної версії */
+                background-image: url('fon3.jpg'); /* Фонове зображення для мобільної версії */
                 background-size: cover;
                 background-position: center; /* Центрування фону */
-                height: 33vh; /* Висота 33% від висоти вікна */
+                height: 37vh; /* Висота 33% від висоти вікна */
                 padding: 20px; /* Відступи всередині секції */
             }
         }
@@ -123,13 +130,12 @@
         .hero h2 {
     font-size: 1.6rem;
     margin: 40px 0 10px; /* Уменьшаем верхний отступ */
-    animation: slideDown 1s ease-in-out;
     position: relative;
     top: -10px; /* Поднимаем заголовок выше */
     display: inline-block;
     padding: 10px 20px; /* Внутренние отступы для текста */
     background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон */
-    backdrop-filter: blur(5px); /* Размытие фона */
+    backdrop-filter: blur(2px); /* Размытие фона */
     border-radius: 10px; /* Скругленные углы */
     animation: slideDown 1s ease-in-out;
         }
@@ -142,12 +148,11 @@
             font-size: 0.9rem;
             font-family: 'Open Sans', sans-serif; /* Новый шрифт */
             color: white; /* Изменяем цвет текста на белый */
-            
-            margin-top: 10px; /* Убираем отступ сверху */
+            margin-top: 10px;
             animation: slideUp 1.5s ease-in-out;
-        }
-
-        @keyframes slideUp {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Добавлена тень */
+            }
+            @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
@@ -189,6 +194,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            role="contentinfo"
         }
 
         .messenger-icons {
@@ -213,7 +219,7 @@
         .service-item h3:hover {
             transform: scale(1.1);
         }
-        
+
         /* Описание услуг изначально скрыто */
         .service-item p {
             display: none;
@@ -270,17 +276,18 @@
             <a href="tel:+380662904960">066-290-49-60</a>
         </p>
     </div>
+    <img src="Logo.png" alt="Логотип ProМонтаж" class="logo">
     </header>
 
 <section class="hero">
     <h2>Захисти свій дім та бізнес разом з <span class="red">Pro</span><span class="black">Монтаж</span></h2>
-    <p>Надійні рішення для вашої безпеки від провідних виробників</p>
+    <p>Надійні рішення для вашої безпеки</p>
     <a href="https://t.me/+380935016040" class="btn" target="_blank">Отримати консультацію</a>
 </section>
 
 <section class="services">
     <h2>Встановлюємо</h2>
-    
+
     <div class="service-item">
         <h3>Відеоспостереження</h3>
         <p>Сучасні системи відеоспостереження з можливістю віддаленого доступу.</p>
@@ -328,3 +335,9 @@
 </script>
 </body>
 </html>
+0 commit comments
+Comments
+0
+ (0)
+Comment
+You're receiving notifications because you're subscribed to this thread.
