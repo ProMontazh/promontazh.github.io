@@ -7,7 +7,7 @@
     <meta name="description" content="ProМонтаж – професійне встановлення охоронних систем у Харкові. Монтаж відеоспостереження, сигналізації, домофонів і контролю доступу для вашої безпеки.">
     <meta name="keywords" content="монтаж відеоспостереження Харків, охоронна сигналізація Харків, система контролю доступу, встановлення домофонів, ProМонтаж Харків, промонтаж харьков">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <title>ProМонтаж – Встановлення охоронних систем | Монтаж відеоспостереження, сигналізації, контролю доступу.</title>
+    <title>ProМонтаж – Професійне встановлення систем безпеки | монтаж відеоспостереження | монтаж установка домофона | установка сигналізації | монтаж системи контролю доступу </title>
     <style>
         body {
             font-family: 'Open Sans', sans-serif; /* Применяем Open Sans для всего текста */
@@ -15,6 +15,13 @@
             padding: 0;
             overflow-x: hidden;
             }
+
+        /* Для мобільних пристроїв */
+        @media (max-width: 768px) {
+        .service-item p {
+        font-size: 0.9rem; /* Можно уменьшить шрифт текста описания для мобильной версии */
+    }
+}
     header {
     background: linear-gradient(to right, #222222, #dadada); /* Градиентный фон */
     color: white;
@@ -28,7 +35,9 @@
     right: 10px;
     width: 60px; /* Размер логотипа, можно изменить по необходимости */
     height: auto;
-     }
+}
+    role="banner"
+        }
         /* Анімація для плавної появи тексту */
         @keyframes fadeInText {
             20% {
@@ -87,7 +96,8 @@
         }
 
         .hero {
-            background-image: url('fon3.jpg'); /* Фонове зображення */
+            background-color: rgba(0, 0, 0, 0.05); /* Полупрозрачный черный фон */
+            background-image: url('kharkiv.jpg'); /* Фонове зображення */
             background-size: cover; /* Розмір фону */
             background-position: center; /* Центрування фону */
             height: 33vh; /* Висота 33% від висоти вікна */
@@ -98,17 +108,16 @@
             padding: 20px; /* Відступи всередині секції */
             }
         @media (max-width: 768px) 
-           .hero {
-                background-image: url('fon3.jpg'); /* Фонове зображення для мобільної версії */
-                background-size: cover;
-                background-position: center; /* Центрування фону */
-                height: 40vh; /* Висота 33% від висоти вікна */
-                padding: 20px; /* Відступи всередині секції */
-                {       
-                .services h2 {
+        {       .services h2 {
                 margin-top: +10px; /* Поднимаем заголовок на 20px */
                 font-size: 1.4rem; /* Можно увеличить размер шрифта для лучшей видимости на мобильных устройствах */
                } } 
+            .hero {
+                background-image: url('fon3.jpg'); /* Фонове зображення для мобільної версії */
+                background-size: cover;
+                background-position: center; /* Центрування фону */
+                height: 37vh; /* Висота 33% від висоти вікна */
+                padding: 20px; /* Відступи всередині секції */
             }
         }
 
@@ -140,7 +149,7 @@
             color: white; /* Изменяем цвет текста на белый */
             margin-top: 10px;
             animation: slideUp 1.5s ease-in-out;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Добавлена тень */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Добавлена тень */
             }
             @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
@@ -184,7 +193,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            }
+            role="contentinfo"
+        }
 
         .messenger-icons {
             margin-top: 20px;
@@ -256,17 +266,18 @@
 </head>
 <body>
 
-<header role="banner">
-  <div>
-      <h1 class="company-name"><span class="red">Pro</span><span class="black">Монтаж</span></h1>
-      <p class="company-description">Монтаж охоронних систем м. Харків</p>
-      <p class="company-phone">
-          <a href="tel:+380935016040">093-501-60-40</a>,
-          <a href="tel:+380662904960">066-290-49-60</a>
-      </p>
-  </div>
-  <img src="Logo.png" alt="Логотип ProМонтаж" class="logo">
-</header>
+<header>
+    <div>
+        <h1 class="company-name"><span class="red">Pro</span><span class="black">Монтаж</span></h1>
+        <p class="company-description">Монтаж охоронних систем м. Харків</p>
+        <p class="company-phone">
+            <a href="tel:+380935016040">093-501-60-40</a>,
+            <a href="tel:+380662904960">066-290-49-60</a>
+        </p>
+    </div>
+    <img src="Logo.png" alt="Логотип ProМонтаж" class="logo">
+    </header>
+
 <section class="hero">
     <h2>Захисти свій дім та бізнес разом з <span class="red">Pro</span><span class="black">Монтаж</span></h2>
     <p>Надійні рішення для вашої безпеки</p>
@@ -306,8 +317,8 @@
     <a href="mailto:promontazh.kharkiv@ukr.net?subject=Запит%20на%20послугу&body=" class="btn">promontazh.kharkiv@ukr.net</a>
     </div>
 </section>
-<footer role="contentinfo">
-  <p>&copy; 2024 <span class="red">Pro</span><span class="black">Монтаж.</span> Всі права захищені.</p>
+<footer>
+    <p>&copy; 2024 <span class="red">Pro</span><span class="black">Монтаж.</span> Всі права захищені.</p>
 </footer>
 <script>
     // Получаем все элементы заголовков услуг
