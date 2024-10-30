@@ -25,10 +25,12 @@
     align-items: center;
         }
     .logo {
-    width: 80px;
+    position: absolute;
+    top: 6px;
+    right: 0px;
+    width: 100px; /* Размер логотипа, можно изменить по необходимости */
     height: auto;
-    margin-right: 0px; /* Отступ справа для отделения логотипа от текста */
-    }
+    } 
         /* Анімація для плавної появи тексту */
         @keyframes fadeInText {
             20% {
@@ -109,7 +111,7 @@
                 font-size: 1.4rem; /* Можно увеличить размер шрифта для лучшей видимости на мобильных устройствах */
                    }
             }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -255,7 +257,6 @@
 <body>
 
 <header role="banner">
-    <img src="Logo_sshit_proM.png" alt="Логотип ProМонтаж" class="logo">
   <div>
       <h1 class="company-name"><span class="red">Pro</span><span class="black">Монтаж</span></h1>
       <p class="company-description"> Монтаж охоронних систем</p>
@@ -264,7 +265,8 @@
           <a href="tel:+380662904960">066-290-49-60</a>
       </p>
   </div>
-  </header>
+  <img src="Logo_sshit_proM.png" alt="Логотип ProМонтаж" class="logo">
+</header>
 <section class="hero">
     <h2>Захисти свій дім та бізнес разом з <span class="red">Pro</span><span class="black">Монтаж</span></h2>
     <p>Надійні рішення для вашої безпеки</p>
