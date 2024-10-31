@@ -96,6 +96,7 @@
             height: 82vh; /* Висота 33% від висоти вікна */
             text-align: center;
             color: rgb(29, 29, 29);
+            padding: 20px;
             display: flex; /* Flexbox для выравнивания */
             flex-direction: column; /* Расположение содержимого по вертикали */
             justify-content: center; /* Центрируем по вертикали */
@@ -132,7 +133,7 @@
     backdrop-filter: blur(2px); /* Размытие фона */
     border-radius: 10px; /* Скругленные углы */
     animation: slideDown 1s ease-in-out;
-    
+    margin-bottom: 20px; /* Отступ между заголовком и описанием */
         }
          @keyframes slideDown {
             from { transform: translateY(-50px); opacity: 0; }
@@ -146,6 +147,7 @@
             margin-top: 10px;
             animation: slideUp 1.5s ease-in-out;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Добавлена тень */
+            margin-bottom: 30px; /* Отступ между описанием и кнопкой */
             }
             @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
