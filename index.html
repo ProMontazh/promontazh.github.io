@@ -257,7 +257,39 @@
 .service-item:nth-child(4) {
     animation-delay: 4.0s; /* Задержка для четвертого элемента */
 }
-   </style>
+        .pricing {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9; /* Светлый фон */
+}
+
+.price-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.price-item h3 {
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.price-item p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f44336; /* Красный цвет для цены */
+}
+  </style>
 </head>
 <body>
 
@@ -296,6 +328,24 @@
 <section class="about">
     <h2>Про компанію <span class="red">Pro</span><span class="black">Монтаж</span></h2>
     <p>Наша компанія займається професійним встановленням систем безпеки. Ми пропонуємо індивідуальні рішення для бізнесу і приватних клієнтів, гарантуючи високу якість та надійність.</p>
+</section>
+    <!-- Новий розділ "Вартість послуг" -->
+<section class="pricing">
+    <h2>Вартість послуг</h2>
+    <div class="price-list">
+        <div class="price-item">
+            <h3>Встановлення відеоспостереження</h3>
+            <p>від 1500 грн</p>
+        </div>
+        <div class="price-item">
+            <h3>Монтаж охоронної сигналізації</h3>
+            <p>від 2000 грн</p>
+        </div>
+        <div class="price-item">
+            <h3>Системи контролю доступу</h3>
+            <p>від 1800 грн</p>
+        </div>
+    </div>
 </section>
 <section class="contact">
     <h2>Наші контакти</h2>
