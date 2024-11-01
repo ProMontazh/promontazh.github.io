@@ -224,6 +224,15 @@
         .service-item.active p {
             display: block;
         }
+        /* Изначально скрываем ценовую таблицу */
+        .price-list {
+        display: none;
+        }
+
+        .price-list.show {
+        display: block;
+        }
+
         /* Анимация появления слева */
 @keyframes slideInFromLeft {
     0% {
@@ -331,8 +340,9 @@
 </section>
     <!-- Новий розділ "Вартість послуг" -->
 <section class="pricing">
-    <h2>Вартість послуг</h2>
-    <div class="price-list">
+    <h2 id="togglePricing">Вартість послуг</h2>
+    <!-- Контейнер для цен -->
+    <div class="price-list" id="priceList">
         <div class="price-item">
             <h3>Встановлення відеоспостереження</h3>
             <p>від 1500 грн</p>
@@ -375,6 +385,15 @@
             serviceItem.classList.toggle('active');
         });
     });
+    // Находим заголовок и список цен
+const togglePricing = document.getElementById('togglePricing');
+const priceList = document.getElementById('priceList');
+
+// Добавляем обработчик событий
+togglePricing.addEventListener('click', () => {
+    // Переключаем класс 'show' для отображения или скрытия списка цен
+    priceList.classList.toggle('show');
+});
 </script>
 </body>
 </html>
