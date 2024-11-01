@@ -396,6 +396,10 @@ const priceList = document.getElementById('priceList');
         priceList.classList.add('show');
     }
 });
+    // Устанавливаем начальное состояние - скрываем список цен
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('priceList').classList.remove('show');
+});
 </script>
 </body>
 </html>
