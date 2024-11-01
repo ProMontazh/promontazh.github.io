@@ -226,14 +226,13 @@
         }
         /* Изначально скрываем ценовую таблицу */
         .price-list {
-        display: none;
-        }
+    display: none;
+}
 
-        .price-list.show p {
-        display: block;
-        }
-
-        /* Анимация появления слева */
+.price-list.show {
+    display: block;
+}
+     /* Анимация появления слева */
 @keyframes slideInFromLeft {
     0% {
         opacity: 0;
@@ -390,9 +389,12 @@ const togglePricing = document.getElementById('togglePricing');
 const priceList = document.getElementById('priceList');
 
 // Добавляем обработчик событий
-togglePricing.addEventListener('click', () => {
-    // Переключаем класс 'show' для отображения или скрытия списка цен
-    priceList.classList.toggle('show');
+    togglePricing.addEventListener('click', () => {
+    if (priceList.classList.contains('show')) {
+        priceList.classList.remove('show');
+    } else {
+        priceList.classList.add('show');
+    }
 });
 </script>
 </body>
