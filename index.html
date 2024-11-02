@@ -157,19 +157,18 @@
             cursor: pointer;
             font-size: 1.2rem;
             margin-top: 20px;
-            animation: pulse 4s ease-in-out infinite; /* Анимация биения сердца */
-            animation-delay: 8s; /* Задержка перед началом пульсации */
+            animation: pulse 4s infinite;
             text-decoration: none; /* Убираем подчеркивание для ссылок */
             display: inline-block; /* Для того, чтобы стили кнопки применялись к ссылке */
         }
 
         @keyframes pulse {
-           0% { transform: scale(1); }
-          37% { transform: scale(1.03); }
-          40% { transform: scale(1.05); }
-          49% { transform: scale(1.042); }
-          52% { transform: scale(1.05); }
-         100% { transform: scale(1); }
+            0% { transform: scale(1); }
+            37% { transform: scale(1.03); }
+            40% { transform: scale(1.05); }
+            49% { transform: scale(1.042); }
+            52% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .btn:hover {
@@ -224,15 +223,7 @@
         .service-item.active p {
             display: block;
         }
-        /* Изначально скрываем ценовую таблицу */
-        .price-list {
-    display: none;
-}
-
-.price-list.show {
-    display: block;
-}
-     /* Анимация появления слева */
+        /* Анимация появления слева */
 @keyframes slideInFromLeft {
     0% {
         opacity: 0;
@@ -265,39 +256,7 @@
 .service-item:nth-child(4) {
     animation-delay: 4.0s; /* Задержка для четвертого элемента */
 }
-        .pricing {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f9f9f9; /* Светлый фон */
-}
-
-.price-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.price-item {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 15px 0;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.price-item h3 {
-    font-size: 1.4rem;
-    color: #333;
-}
-
-.price-item p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #f44336; /* Красный цвет для цены */
-}
-  </style>
+   </style>
 </head>
 <body>
 
@@ -337,25 +296,6 @@
     <h2>Про компанію <span class="red">Pro</span><span class="black">Монтаж</span></h2>
     <p>Наша компанія займається професійним встановленням систем безпеки. Ми пропонуємо індивідуальні рішення для бізнесу і приватних клієнтів, гарантуючи високу якість та надійність.</p>
 </section>
-    <!-- Новий розділ "Вартість послуг" -->
-<section class="pricing">
-    <h2 id="togglePricing">Вартість послуг</h2>
-    <!-- Контейнер для цен -->
-    <div class="price-list" id="priceList">
-        <div class="price-item">
-            <h3>Встановлення відеоспостереження</h3>
-            <p>від 1500 грн</p>
-        </div>
-        <div class="price-item">
-            <h3>Монтаж охоронної сигналізації</h3>
-            <p>від 2000 грн</p>
-        </div>
-        <div class="price-item">
-            <h3>Системи контролю доступу</h3>
-            <p>від 1800 грн</p>
-        </div>
-    </div>
-</section>
 <section class="contact">
     <h2>Наші контакти</h2>
     <p class="company-phone">
@@ -384,22 +324,6 @@
             serviceItem.classList.toggle('active');
         });
     });
-    // Находим заголовок и список цен
-const togglePricing = document.getElementById('togglePricing');
-const priceList = document.getElementById('priceList');
-
-// Добавляем обработчик событий
-    togglePricing.addEventListener('click', () => {
-    if (priceList.classList.contains('show')) {
-        priceList.classList.remove('show');
-    } else {
-        priceList.classList.add('show');
-    }
-});
-    // Устанавливаем начальное состояние - скрываем список цен
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('priceList').classList.remove('show');
-});
 </script>
 </body>
 </html>
