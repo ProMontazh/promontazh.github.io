@@ -291,13 +291,18 @@
 }
 
 /* Галерея портфолио */
+.portfolio {
+    text-align: center; /* Выравниваем текст по центру */
+    padding: 60px 20px; /* Добавляем отступы */
+    background-color: white; /* Убедитесь, что фон соответствует остальным секциям */
+}
 .portfolio-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Адаптивная сетка */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрируем элементы галереи */
     gap: 15px; /* Отступы между изображениями */
     margin-top: 20px;
 }
-
 .portfolio-gallery img {
     width: 100%;
     height: auto;
