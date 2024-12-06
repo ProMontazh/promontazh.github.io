@@ -314,9 +314,25 @@
 .portfolio-gallery img:hover {
     transform: scale(1.05); /* Увеличение при наведении */
 }
+        .hidden-image {
+    display: none; /* Скрываем изображения */
+}
 
-   </style>
-</head>
+.hidden-image.visible {
+    display: block; /* Показываем изображения, когда добавляется класс 'visible' */
+    animation: fadeIn 1s ease-in-out; /* Анимация появления */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+    </style>
+    </head>
 <header role="banner">
   <div>
       <h1 class="company-name"><span class="red">Про</span><span class="black">Монтаж</span></h1>
@@ -356,11 +372,12 @@
 <section class="portfolio">
     <h2>Наші роботи</h2>
     <div class="portfolio-gallery">
-        <img src="portfolio1.jpg" alt="Робота 1">
-        <img src="portfolio2.jpg" alt="Робота 2">
-        <img src="portfolio3.jpg" alt="Робота 3">
-        <img src="portfolio4.jpg" alt="Робота 4">
+        <img src="portfolio1.jpg" alt="Робота 1" class="hidden-image">
+        <img src="portfolio2.jpg" alt="Робота 2" class="hidden-image">
+        <img src="portfolio3.jpg" alt="Робота 3" class="hidden-image">
+        <img src="portfolio4.jpg" alt="Робота 4" class="hidden-image">
     </div>
+    <button id="show-images">Показати роботи</button>
 </section>
 <section class="about">
     <h2>О компанії <span class="red">Про</span><span class="black">Монтаж</span></h2>
@@ -398,8 +415,13 @@
 </script>
     <script>
     const portfolioImages = document.querySelectorAll('.portfolio-gallery img');
-
-    portfolioImages.forEach(img => {
+        document.getElementById("show-images").addEventListener("click", function() {
+    const images = document.querySelectorAll(".hidden-image");
+    images.forEach(image => {
+        image.classList.add("visible"); // Добавляем класс для показа изображений
+    });
+});
+        portfolioImages.forEach(img => {
         img.addEventListener('click', () => {
             const overlay = document.createElement('div');
             overlay.style.position = 'fixed';
