@@ -281,6 +281,35 @@
 .service-item:nth-child(4) {
     animation-delay: 4.0s; /* Задержка для четвертого элемента */
 }
+        /* Стили для изображений услуг */
+.service-image {
+    width: 100%; /* Изображение растягивается по ширине контейнера */
+    height: auto; /* Пропорциональная высота */
+    border-radius: 8px; /* Скруглённые углы */
+    margin: 10px 0; /* Отступы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+/* Галерея портфолио */
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Адаптивная сетка */
+    gap: 15px; /* Отступы между изображениями */
+    margin-top: 20px;
+}
+
+.portfolio-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    transition: transform 0.3s ease; /* Эффект при наведении */
+}
+
+.portfolio-gallery img:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
    </style>
 </head>
 <header role="banner">
@@ -362,5 +391,38 @@
         });
     });
 </script>
+    <script>
+    const portfolioImages = document.querySelectorAll('.portfolio-gallery img');
+
+    portfolioImages.forEach(img => {
+        img.addEventListener('click', () => {
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = 0;
+            overlay.style.left = 0;
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'rgba(0, 0, 0, 0.8)';
+            overlay.style.display = 'flex';
+            overlay.style.justifyContent = 'center';
+            overlay.style.alignItems = 'center';
+            overlay.style.zIndex = 1000;
+
+            const enlargedImg = document.createElement('img');
+            enlargedImg.src = img.src;
+            enlargedImg.style.maxWidth = '90%';
+            enlargedImg.style.maxHeight = '90%';
+            enlargedImg.style.borderRadius = '8px';
+
+            overlay.appendChild(enlargedImg);
+            document.body.appendChild(overlay);
+
+            overlay.addEventListener('click', () => {
+                document.body.removeChild(overlay);
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
