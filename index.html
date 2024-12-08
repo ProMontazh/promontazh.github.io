@@ -198,7 +198,7 @@
     filter: blur(0.8px); /* Размытие фона */
     z-index: -1; /* Размещаем фон за контентом секции */
 }
-/* Стили для фотогалереи */
+/* Стили для раздела "Наші проекти" */
 .projects {
     text-align: center;
     padding: 60px 20px;
@@ -207,11 +207,6 @@
 
 #projects-header {
     cursor: pointer;
-    transition: color 0.3s ease-in-out;
-}
-
-#projects-header:hover {
-    color: #f44336; /* Красный цвет при наведении */
 }
 
 .gallery {
@@ -388,15 +383,31 @@
   <p>&copy; 2024 <span class="red">Pro</span><span class="black">Монтаж.</span> Всі права захищені.</p>
 </footer>
 <script>
-    document.getElementById("projects-header").addEventListener("click", () => {
-    const gallery = document.getElementById("gallery");
-    gallery.classList.remove("hidden");
+    const projectsHeader = document.getElementById("projects-header");
+const gallery = document.getElementById("gallery");
 
-    const images = gallery.querySelectorAll("img");
-    images.forEach((img, index) => {
-        setTimeout(() => img.classList.add("show"), index * 300);
-    });
+// Переключение отображения галереи
+projectsHeader.addEventListener("click", () => {
+    gallery.classList.toggle("hidden");
+
+    if (!gallery.classList.contains("hidden")) {
+        const images = gallery.querySelectorAll("img");
+        images.forEach((img, index) => {
+            setTimeout(() => img.classList.add("show"), index * 300);
+        });
+    } else {
+        gallery.querySelectorAll("img").forEach((img) => img.classList.remove("show"));
+    }
 });
+
+// Закрытие галереи при клике вне её
+document.addEventListener("click", (event) => {
+    if (!gallery.contains(event.target) && event.target !== projectsHeader) {
+        gallery.classList.add("hidden");
+        gallery.querySelectorAll("img").forEach((img) => img.classList.remove("show"));
+    }
+});
+
 
     // Получаем все элементы заголовков услуг
     const serviceHeaders = document.querySelectorAll('.service-item h3');
