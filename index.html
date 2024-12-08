@@ -5,149 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="RAtQopuHSf6QHzpTOjiRLz0c50dcHh6ThSFb9dMf16Y" />
     <meta name="description" content="ProМонтаж – встановлення охоронних систем м. Харків. Монтаж відеоспостереження, сигналізації, домофонів та контролю доступу. Установка охранных систем. Харьков. Монтаж видеонаблюдения, сигнализации, домофонов и контроля доступа.">
-    <meta name="keywords" content="промонтаж, промонтаж харьков, установка видеонаблюдения харьков, монтаж видеонаблюдения харьков, установить видеонаблюдение харьков, установить охранную сигнализацию харьков, установка сигнализации харьков, монтаж охранной сигнализации,  монтаж домофона харьков, установить домофон харьков, монтажник видеонаблюдения харьков, установщик домофонов харьков, монтаж відеоспостереження Харків, охоронна сигналізація Харків, система контролю доступу, встановлення домофонів, промонтаж Харків, ">
+    <meta name="keywords" content="промонтаж, промонтаж харьков, установка видеонаблюдения харьков, монтаж видеонаблюдения харьков, установить видеонаблюдение харьков, установить охранную сигнализацию харьков, установка сигнализации харьков, монтаж охранной сигнализации, монтаж домофона харьков, установить домофон харьков, монтажник видеонаблюдения харьков, установщик домофонов харьков, монтаж відеоспостереження Харків, охоронна сигналізація Харків, система контролю доступу, встановлення домофонів, промонтаж Харків, ">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title>ProМонтаж – монтаж систем безпеки: відеоспостереження, сигналізації, контролю доступу</title>
     <style>
         body {
-            font-family: 'Open Sans', sans-serif; /* Применяем Open Sans для всего текста */
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            }
-    header {
-    background: linear-gradient(to right, #222222, #dadada); /* Градиентный фон */
-    color: white;
-    margin: -2px;    
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
         }
-    .logo {
-    position: absolute;
-    top: 5px;
-    right: 0px;
-    width: 48px; /* Размер логотипа, можно изменить по необходимости */
-    height: auto;
-    } 
+        header {
+            background: linear-gradient(to right, #222222, #dadada);
+            color: white;
+            margin: -2px;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            position: absolute;
+            top: 5px;
+            right: 0px;
+            width: 48px;
+            height: auto;
+        }
         /* Анімація для плавної появи тексту */
         @keyframes fadeInText {
             20% {
                 opacity: 0;
-                transform: translateY(15%); /* Легке зміщення вгору для ефекту */
+                transform: translateY(15%);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0); /* Повертаємо на місце */
+                transform: translateY(0);
             }
         }
         /* Застосування анімації до назви компанії */
         .company-name {
             font-size: 2.3rem;
             margin: 0;
-            opacity: 0; /* Спочатку невидимий */
-            animation: fadeInText 3s ease-in-out forwards; /* Плавна поява протягом 3 секунд */
+            opacity: 0;
+            animation: fadeInText 3s ease-in-out forwards;
         }
         /* Анімація для появи телефонів справа наліво */
         @keyframes slideInFromRight {
             20% {
                 opacity: 1;
-                transform: translateX(5%); /* Починаємо справа за межами екрана */
+                transform: translateX(5%);
             }
             100% {
                 opacity: 1;
-                transform: translateX(0); /* Телефони переміщуються на своє місце */
+                transform: translateX(0);
             }
         }
         /* Застосування анімації до телефонів з затримкою */
         .company-phone {
-            font-size: 1.0rem; /* Зменшено розмір шрифту */
+            font-size: 1.0rem;
             margin-top: 4px;
-            color: #f44336; /* Червоний колір */
-            font-weight: bold; /* Жирний шрифт */
-            opacity: 0; /* Спочатку невидимий */
-            animation: slideInFromRight 2s ease-in-out forwards; /* Анімація появи справа наліво */
-            animation-delay: 5.5s; /* Затримка 6 секунди */
+            color: #f44336;
+            font-weight: bold;
+            opacity: 0;
+            animation: slideInFromRight 2s ease-in-out forwards;
+            animation-delay: 5.5s;
         }
         .company-phone a {
-            color: #f44336; /* Червоний колір для посилань */
+            color: #f44336;
             text-decoration: none;
         }
         .company-description {
-            font-size: 0.8rem; /* Зменшено розмір шрифту */
+            font-size: 0.8rem;
             margin-top: 8px;
-            color: white; /* Білий колір тексту */
+            color: white;
         }
-
-        .red {
-            color: #f44336;
-        }
-
-        .black {
-            color: black;
-        }
-
         .hero {
-            background-color: rgba(0, 0, 0, 0.05); /* Полупрозрачный черный фон */
-            background-image: url('fon1.new.jpg'); /* Фонове зображення */
-            background-size: cover; /* Розмір фону */
-            background-position: center; /* Центрування фону */
-            height: 50vh; /* Висота 33% від висоти вікна */
+            background-color: rgba(0, 0, 0, 0.05);
+            background-image: url('fon1.new.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
             text-align: center;
             color: rgb(29, 29, 29);
             position: relative;
             animation: fadeIn 2s ease-in-out;
-            padding: 40px; /* Відступи всередині секції */
-            }
+            padding: 40px;
+        }
         @media (max-width: 768px) {
-               .hero {
-                background-image: url('fon3.jpg'); /* Фонове зображення для мобільної версії */
-                background-size: cover;
-                background-position: center; /* Центрування фону */
-                height: 37vh; /* Висота 33% від висоти вікна */
-                padding: 20px; /* Відступи всередині секції */
-                margin-top: 0px; /* Поднимаем заголовок на 20px */
-                font-size: 1.4rem; /* Можно увеличить размер шрифта для лучшей видимости на мобильных устройствах */
-                   }
+            .hero {
+                background-image: url('fon3.jpg');
+                height: 37vh;
+                padding: 20px;
+                font-size: 1.4rem;
             }
-
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         .hero h2 {
-    font-size: 1.6rem;
-    margin: 35px 0 10px; /* Уменьшаем верхний отступ */
-    position: relative;
-    top: 0px; /* Поднимаем заголовок выше */
-    display: inline-block;
-    padding: 10px 20px; /* Внутренние отступы для текста */
-    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон */
-    backdrop-filter: blur(2px); /* Размытие фона */
-    border-radius: 10px; /* Скругленные углы */
-    animation: slideDown 1s ease-in-out;
-
+            font-size: 1.6rem;
+            margin: 35px 0 10px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(2px);
+            border-radius: 10px;
+            animation: slideDown 1s ease-in-out;
         }
-         @keyframes slideDown {
+        @keyframes slideDown {
             from { transform: translateY(-50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
         .hero p {
             font-size: 1.0rem;
-            font-family: 'Open Sans', sans-serif; /* Новый шрифт */
-            color: white; /* Изменяем цвет текста на белый */
+            color: white;
             margin-top: 10px;
             animation: slideUp 1.5s ease-in-out;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Добавлена тень */
-            }
-            @keyframes slideUp {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
         .btn {
             background-color: #f44336;
             color: white;
@@ -157,320 +136,170 @@
             cursor: pointer;
             font-size: 1.2rem;
             margin-top: 20px;
-            animation: pulse 4s ease-in-out infinite; /* Анимация биения сердца */
-            animation-delay: 8s; /* Задержка перед началом пульсации */
-            text-decoration: none; /* Убираем подчеркивание для ссылок */
-            display: inline-block; /* Для того, чтобы стили кнопки применялись к ссылке */
+            animation: pulse 4s ease-in-out infinite;
+            animation-delay: 8s;
+            text-decoration: none;
+            display: inline-block;
         }
-
         @keyframes pulse {
-           0% { transform: scale(1); }
-          37% { transform: scale(1.03); }
-          40% { transform: scale(1.05); }
-          49% { transform: scale(1.042); }
-          52% { transform: scale(1.05); }
-         100% { transform: scale(1); }
+            0% { transform: scale(1); }
+            37% { transform: scale(1.03); }
+            40% { transform: scale(1.05); }
+            49% { transform: scale(1.042); }
+            52% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
-
         .btn:hover {
             background-color: #d32f2f;
         }
         .about {
-    position: relative; /* Обязательное позиционирование для псевдоэлемента */
-    color: black; /* Цвет текста */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Добавлена тень */        
-    padding: 60px 20px;
-    z-index: 1; /* Размещаем контент над фоном */
-    overflow: hidden; /* Скрываем фон, выходящий за границы секции */
-}
-
-.about::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('fon6.jpg'); /* Второй фон */
-    background-size: cover;
-    background-position: center;
-    opacity: 0.6; /* Полупрозрачность фона */
-    filter: blur(0.8px); /* Размытие фона */
-    z-index: -1; /* Размещаем фон за контентом секции */
-}
-/* Стили для раздела "Наші проекти" */
-.projects {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: white;
-}
-
-#projects-header {
-    cursor: pointer;
-}
-
-/* Галерея */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-}
-
-/* Модальное окно */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.8);
-}
-
-.modal-content {
-  max-width: 90%;
-  max-height: 90%;
-  margin: auto;
-  display: block;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
-}
-   .services, .about, .contact {
+            position: relative;
+            color: black;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
             padding: 60px 20px;
-            text-align: center;
-            background-color: white; /* Білий фон для секцій */
         }
-
+        .about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('fon6.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            filter: blur(0.8px);
+            z-index: -1;
+        }
+        .projects {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white;
+        }
+        #projects-header {
+            cursor: pointer;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
         footer {
-            background: linear-gradient(to left, #222222, #dadada); /* Градиентный фон */
+            background: linear-gradient(to left, #222222, #dadada);
             color: white;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            }
-
+        }
         .messenger-icons {
             margin-top: 20px;
         }
-
         .messenger-icons img {
             width: 40px;
             margin: 0 10px;
-            transition: transform 0.3s;
         }
-
-        .messenger-icons img:hover {
-            transform: scale(1.2);
+        /* Мобильная версия */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.3rem;
+            }
         }
-         /* Эффект увеличения заголовков при наведении */
-         .service-item h3 {
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .service-item h3:hover {
-            transform: scale(1.1);
-        }
-
-        /* Описание услуг изначально скрыто */
-        .service-item p {
-            display: none;
-            margin-top: 10px;
-        }
-
-        /* Когда добавляется класс .active, описание становится видимым */
-        .service-item.active p {
-            display: block;
-        }
-        /* Анимация появления слева */
-@keyframes slideInFromLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-5%); /* Начинаем за пределами экрана слева */
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0); /* Элемент возвращается на свое место */
-    }
-}
-
-/* Применение анимации с разной задержкой для каждого элемента */
-.service-item {
-    opacity: 0; /* Изначально элементы невидимы */
-    animation: slideInFromLeft 1s ease-in-out forwards; /* Анимация появления */
-}
-
-.service-item:nth-child(1) {
-    animation-delay: 0.0s; /* Задержка для первого элемента */
-}
-
-.service-item:nth-child(2) {
-    animation-delay: 1.2s; /* Задержка для второго элемента */
-}
-
-.service-item:nth-child(3) {
-    animation-delay: 2.6s; /* Задержка для третьего элемента */
-}
-
-.service-item:nth-child(4) {
-    animation-delay: 4.0s; /* Задержка для четвертого элемента */
-}
-   </style>
+    </style>
 </head>
 <body>
-
-<header role="banner">
-  <div>
-      <h1 class="company-name"><span class="red">Pro</span><span class="black">Монтаж</span></h1>
-      <p class="company-description"> Встановлення охоронних систем м. Харків </p>
-      <p class="company-phone">
-          <a href="tel:+380935016040">093-501-60-40</a>
-          <a href="tel:+380662904960"></span><span class="black">066-290-49-60</span></a>
-      </p>
-  </div>
-  <img src="Logo.png" alt="Логотип ProМонтаж" class="logo">
+<header>
+    <div class="company-name">ProЗахист</div>
+    <div class="company-phone">
+        <a href="tel:+380675431234">+38 (067) 543-12-34</a>
+        <br>
+        <a href="tel:+380987654321">+38 (098) 765-43-21</a>
+    </div>
 </header>
+
 <section class="hero">
-    <h2>Захисти свій дім та бізнес разом з <span class="red">Pro</span><span class="black">Монтаж</span></h2>
-    <p>Надійні рішення для вашої безпеки</p>
-    <a href="https://t.me/+380935016040" class="btn" target="_blank">Отримати консультацію</a>
+    <h2>Встановлення та обслуговування охоронних систем</h2>
+    <p>Ми надаємо професійні послуги монтажу відеоспостереження, сигналізації та контролю доступу.</p>
+    <a href="#" class="btn">Залишити заявку</a>
 </section>
 
-<section class="services">
-    <h2>Встановлюємо</h2>
-
-    <div class="service-item">
-        <h3>Відеоспостереження</h3>
-        <p>Сучасні системи відеоспостереження з можливістю віддаленого доступу.</p>
-    </div>
-    <div class="service-item"> 
-        <h3>Системи контролю доступу</h3>
-        <p>Наші системи дозволяють обмежити доступ сторонніх осіб до ваших приміщень.</p>
-    </div>
-    <div class="service-item">
-        <h3>Охоронну сигналізацію</h3>
-        <p>Комплексні системи охорони, захистят від несанкціонованого проникнення.</p>
-    </div>
-    </section>
-    <section class="projects">
-    <h2 id="projects-header">Наші проекти</h2>
-    <div class="gallery">
-  <div class="gallery-item"><img src="001.jpeg" alt="Проект 1"></div>
-  <div class="gallery-item"><img src="002.jpeg" alt="Проект 2"></div>
-  <div class="gallery-item"><img src="003.jpeg" alt="Проект 3"></div>
-  <div class="gallery-item"><img src="004.jpeg" alt="Проект 4"></div>
-  <div class="gallery-item"><img src="005.jpeg" alt="Проект 5"></div>
-  <div class="gallery-item"><img src="006.jpeg" alt="Проект 6"></div>
-  <div class="gallery-item"><img src="007.jpeg" alt="Проект 7"></div>
-  <div class="gallery-item"><img src="008.jpeg" alt="Проект 8"></div>
-  <div class="gallery-item"><img src="009.jpeg" alt="Проект 9"></div>
-  <div class="gallery-item"><img src="010.jpeg" alt="Проект 10"></div>
-  <div class="gallery-item"><img src="011.jpeg" alt="Проект 11"></div>
-  <div class="gallery-item"><img src="012.jpeg" alt="Проект 12"></div>
-  <div class="gallery-item"><img src="013.jpeg" alt="Проект 13"></div>
-  <div class="gallery-item"><img src="014.jpeg" alt="Проект 14"></div>
-  <div class="gallery-item"><img src="015.jpeg" alt="Проект 15"></div>
-  <div class="gallery-item"><img src="016.jpeg" alt="Проект 16"></div>
-</div>
-
-          <!-- Modal -->
-<div id="imageModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="modalImg">
-</div>
-</section>
 <section class="about">
-    <h2>О компанії <span class="red">Pro</span><span class="black">Монтаж</span></h2>
-    <p>Наша компанія займається професійним встановленням систем безпеки. Ми пропонуємо індивідуальні рішення для бізнесу і приватних клієнтів, гарантуючи високу якість та надійність.</p>
+    <h2>Про нас</h2>
+    <p>Наша компанія спеціалізується на встановленні охоронних систем, пропонуючи рішення для дому та бізнесу.</p>
 </section>
-<section class="contact">
-    <h2>Наші контакти</h2>
-    <p class="company-phone">
-        <a href="tel:+380935016040">(093) 501-60-40</a>, 
-        <a href="tel:+380662904960">(066) 290-49-60</a>
-    </p>
-    <div class="messenger-icons">
-        <a href="https://wa.me/380935016040"><img src="WhatsApp.png" alt="WhatsApp"></a>
-        <a href="https://t.me/+380935016040"><img src="Telegram.png" alt="Telegram"></a>
-        <a href="viber://add?number=380935016040"><img src="Viber.png" alt="Viber"></a>
-    </div>
-    <a href="mailto:promontazh.kharkiv@ukr.net?subject=Запит%20на%20послугу&body=" class="btn">promontazh.kharkiv@ukr.net</a>
+
+<section class="projects">
+    <div id="projects-header" class="company-name">Наші проекти</div>
+    <div class="gallery" id="gallery">
+        <div class="gallery-item">
+            <img src="project1.jpg" alt="Проект 1" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="project2.jpg" alt="Проект 2" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="project3.jpg" alt="Проект 3" onclick="openModal(this)">
+        </div>
     </div>
 </section>
-<footer role="contentinfo">
-  <p>&copy; 2024 <span class="red">Pro</span><span class="black">Монтаж.</span> Всі права захищені.</p>
+
+<!-- Модальное окно для просмотра изображения -->
+<div class="modal" id="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img">
+</div>
+
+<footer>
+    <p>&copy; 2024 ProЗахист | Всі права захищені</p>
 </footer>
+
 <script>
-    const projectsHeader = document.getElementById("projects-header");
-const gallery = document.getElementById("gallery");
-
-// Переключение отображения галереи
-projectsHeader.addEventListener("click", () => {
-    gallery.classList.toggle("hidden");
-
-    if (!gallery.classList.contains("hidden")) {
-        const images = gallery.querySelectorAll("img");
-        images.forEach((img, index) => {
-            setTimeout(() => img.classList.add("show"), index * 300);
-        });
-    } else {
-        gallery.querySelectorAll("img").forEach((img) => img.classList.remove("show"));
+    // Открытие модального окна
+    function openModal(img) {
+        document.getElementById("modal").style.display = "block";
+        document.getElementById("modal-img").src = img.src;
     }
-});
-
-// Закрытие галереи при клике вне её
-document.addEventListener("click", (event) => {
-    if (!gallery.contains(event.target) && event.target !== projectsHeader) {
-        gallery.classList.add("hidden");
-        gallery.querySelectorAll("img").forEach((img) => img.classList.remove("show"));
+    // Закрытие модального окна
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
     }
-});
 
-
-    // Получаем все элементы заголовков услуг
-    const serviceHeaders = document.querySelectorAll('.service-item h3');
-    // Добавляем событие клика на каждый заголовок
-    serviceHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const serviceItem = header.parentElement;
-            // Переключаем класс active для отображения/скрытия описания
-            serviceItem.classList.toggle('active');
-        });
+    // Показ галереи при нажатии на раздел "Наші проекти"
+    document.getElementById("projects-header").addEventListener("click", function() {
+        const gallery = document.getElementById("gallery");
+        gallery.style.display = gallery.style.display === "grid" ? "none" : "grid";
     });
-    const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImg");
-
-document.querySelectorAll(".gallery-item img").forEach(img => {
-  img.addEventListener("click", () => {
-    modal.style.display = "block";
-    modalImg.src = img.src;
-  });
-});
-
-document.querySelector(".close").addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
 </script>
 </body>
 </html>
