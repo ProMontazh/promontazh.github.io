@@ -211,72 +211,46 @@
 
 /* Галерея */
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
 }
 
-.gallery-item {
-    width: calc(33% - 10px);
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
 }
 
-.gallery-img {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.gallery-img:hover {
-    transform: scale(1.05);
-}
 /* Модальное окно */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  top: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
 }
 
 .modal-content {
-    max-width: 90%;
-    max-height: 90%;
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  display: block;
 }
 
 .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
 }
-
-
-.navigation {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.prev, .next {
-    color: white;
-    font-size: 40px;
-    cursor: pointer;
-    padding: 20px;
-}
-.services, .about, .contact {
+   .services, .about, .contact {
             padding: 60px 20px;
             text-align: center;
             background-color: white; /* Білий фон для секцій */
@@ -397,13 +371,13 @@
     <section class="projects">
     <h2 id="projects-header">Наші проекти</h2>
     <div class="gallery">
-  <div class="gallery-item"><img src="001.jpeg" alt="Проект 1" class="gallery-img"></div>
-<div class="gallery-item"><img src="002.jpeg" alt="Проект 2" class="gallery-img"></div>
-<div class="gallery-item"><img src="003.jpeg" alt="Проект 3" class="gallery-img"></div>
-<div class="gallery-item"><img src="004.jpeg" alt="Проект 4" class="gallery-img"></div>
-<div class="gallery-item"><img src="005.jpeg" alt="Проект 5" class="gallery-img"></div>
-<div class="gallery-item"><img src="006.jpeg" alt="Проект 6" class="gallery-img"></div>
-<div class="gallery-item"><img src="007.jpeg" alt="Проект 7" class="gallery-img"></div>
+  <div class="gallery-item"><img src="001.jpeg" alt="Проект 1"></div>
+  <div class="gallery-item"><img src="002.jpeg" alt="Проект 2"></div>
+  <div class="gallery-item"><img src="003.jpeg" alt="Проект 3"></div>
+  <div class="gallery-item"><img src="004.jpeg" alt="Проект 4"></div>
+  <div class="gallery-item"><img src="005.jpeg" alt="Проект 5"></div>
+  <div class="gallery-item"><img src="006.jpeg" alt="Проект 6"></div>
+  <div class="gallery-item"><img src="007.jpeg" alt="Проект 7"></div>
   <div class="gallery-item"><img src="008.jpeg" alt="Проект 8"></div>
   <div class="gallery-item"><img src="009.jpeg" alt="Проект 9"></div>
   <div class="gallery-item"><img src="010.jpeg" alt="Проект 10"></div>
@@ -414,14 +388,10 @@
   <div class="gallery-item"><img src="015.jpeg" alt="Проект 15"></div>
   <div class="gallery-item"><img src="016.jpeg" alt="Проект 16"></div>
 </div>
-          <!-- Модальное окно -->
-<div id="modal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-img">
-    <div class="navigation">
-        <span class="prev">&#10094;</span>
-        <span class="next">&#10095;</span>
-    </div>
+          <!-- Modal -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
 </div>
 </section>
 <section class="about">
@@ -482,35 +452,24 @@ document.addEventListener("click", (event) => {
             serviceItem.classList.toggle('active');
         });
     });
-    const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-img");
-const images = document.querySelectorAll(".gallery-img");
-let currentIndex = 0;
+    const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
 
-// Открытие модального окна
-images.forEach((img, index) => {
-    img.addEventListener("click", () => {
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-        currentIndex = index;
-    });
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    modalImg.src = img.src;
+  });
 });
 
-// Закрытие окна
-document.querySelector(".close").onclick = () => {
+document.querySelector(".close").addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
     modal.style.display = "none";
-};
-
-// Перелистывание изображений
-document.querySelector(".prev").onclick = () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    modalImg.src = images[currentIndex].src;
-};
-
-document.querySelector(".next").onclick = () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    modalImg.src = images[currentIndex].src;
-};
+  }
 });
 </script>
 </body>
