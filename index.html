@@ -213,14 +213,25 @@
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-}
-.gallery-img {
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
+    gap: 15px;
+    justify-content: center;
 }
 
+.gallery-item {
+    width: calc(33% - 10px);
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
 /* Модальное окно */
 .modal {
     display: none;
@@ -236,8 +247,8 @@
 }
 
 .modal-content {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 90%;
+    max-height: 90%;
 }
 
 .close {
@@ -248,6 +259,7 @@
     color: white;
     cursor: pointer;
 }
+
 
 .navigation {
     position: absolute;
@@ -385,13 +397,13 @@
     <section class="projects">
     <h2 id="projects-header">Наші проекти</h2>
     <div class="gallery">
-  <div class="gallery-item"><img src="001.jpeg" alt="Проект 1"></div>
-  <div class="gallery-item"><img src="002.jpeg" alt="Проект 2"></div>
-  <div class="gallery-item"><img src="003.jpeg" alt="Проект 3"></div>
-  <div class="gallery-item"><img src="004.jpeg" alt="Проект 4"></div>
-  <div class="gallery-item"><img src="005.jpeg" alt="Проект 5"></div>
-  <div class="gallery-item"><img src="006.jpeg" alt="Проект 6"></div>
-  <div class="gallery-item"><img src="007.jpeg" alt="Проект 7"></div>
+  <div class="gallery-item"><img src="001.jpeg" alt="Проект 1" class="gallery-img"></div>
+<div class="gallery-item"><img src="002.jpeg" alt="Проект 2" class="gallery-img"></div>
+<div class="gallery-item"><img src="003.jpeg" alt="Проект 3" class="gallery-img"></div>
+<div class="gallery-item"><img src="004.jpeg" alt="Проект 4" class="gallery-img"></div>
+<div class="gallery-item"><img src="005.jpeg" alt="Проект 5" class="gallery-img"></div>
+<div class="gallery-item"><img src="006.jpeg" alt="Проект 6" class="gallery-img"></div>
+<div class="gallery-item"><img src="007.jpeg" alt="Проект 7" class="gallery-img"></div>
   <div class="gallery-item"><img src="008.jpeg" alt="Проект 8"></div>
   <div class="gallery-item"><img src="009.jpeg" alt="Проект 9"></div>
   <div class="gallery-item"><img src="010.jpeg" alt="Проект 10"></div>
