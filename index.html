@@ -493,7 +493,11 @@ document.addEventListener('keydown', (e) => {
             serviceItem.classList.toggle('active');
         });
     });
-    
+    document.getElementById("projects-title").addEventListener("click", function() {
+    const gallery = document.getElementById("gallery");
+    gallery.classList.toggle("hidden");
+});
+
 </script>
 </body>
 </html>
