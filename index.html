@@ -209,55 +209,47 @@
     cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
-
+/* Галерея */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
 }
 
-.gallery-image {
-  width: 150px;
+.gallery-item img {
+  width: 100%;
+  height: auto;
   cursor: pointer;
 }
 
-.lightbox {
+/* Модальное окно */
+.modal {
+  display: none;
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
+  top: 0;
+  top: 20px;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  background-color: rgba(0,0,0,0.8);
 }
 
-.lightbox img {
+.modal-content {
   max-width: 90%;
   max-height: 90%;
-}
-
-.nav-button {
-  color: white;
-  font-size: 2em;
-  cursor: pointer;
-  margin: 0 20px;
+  margin: auto;
+  display: block;
 }
 
 .close {
   position: absolute;
   top: 20px;
-  right: 20px;
-  font-size: 2em;
+  right: 30px;
   color: white;
+  font-size: 40px;
   cursor: pointer;
 }
-
    .services, .about, .contact {
             padding: 60px 20px;
             text-align: center;
@@ -377,11 +369,11 @@
     </div>
     </section>
     <section class="projects">
-    <h2 id="projects-title" class="projects-title">Наші проекти</h2>
-<div id="gallery" class="gallery hidden">
-  <img src="001.jpeg" alt="Project 1" class="gallery-image">
-  <img src="002.jpeg" alt="Project 2" class="gallery-image">
-  <img src="003.jpeg" alt="Project 3" class="gallery-image">
+    <h2 id="projects-header">Наші проекти</h2>
+    <div class="gallery">
+  <div class="gallery-item"><img src="001.jpeg" alt="Проект 1"></div>
+  <div class="gallery-item"><img src="002.jpeg" alt="Проект 2"></div>
+  <div class="gallery-item"><img src="003.jpeg" alt="Проект 3"></div>
   <div class="gallery-item"><img src="004.jpeg" alt="Проект 4"></div>
   <div class="gallery-item"><img src="005.jpeg" alt="Проект 5"></div>
   <div class="gallery-item"><img src="006.jpeg" alt="Проект 6"></div>
@@ -396,13 +388,10 @@
   <div class="gallery-item"><img src="015.jpeg" alt="Проект 15"></div>
   <div class="gallery-item"><img src="016.jpeg" alt="Проект 16"></div>
 </div>
-<div id="lightbox" class="lightbox hidden">
+          <!-- Modal -->
+<div id="imageModal" class="modal">
   <span class="close">&times;</span>
-  <img id="lightbox-img" src="" alt="Selected Image">
-  <div class="navigation">
-    <span id="prev" class="nav-button">❮</span>
-    <span id="next" class="nav-button">❯</span>
-  </div>
+  <img class="modal-content" id="modalImg">
 </div>
 </section>
 <section class="about">
@@ -427,60 +416,30 @@
   <p>&copy; 2024 <span class="red">Pro</span><span class="black">Монтаж.</span> Всі права захищені.</p>
 </footer>
 <script>
-const projectsTitle = document.getElementById('projects-title');
-const gallery = document.getElementById('gallery');
-const galleryImages = document.querySelectorAll('.gallery-image');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
-const closeButton = document.querySelector('.close');
+    const projectsHeader = document.getElementById("projects-header");
+const gallery = document.getElementById("gallery");
 
-let currentIndex = 0;
+// Переключение отображения галереи
+projectsHeader.addEventListener("click", () => {
+    gallery.classList.toggle("hidden");
 
-// Показать галерею при клике на заголовок
-projectsTitle.addEventListener('click', () => {
-  gallery.classList.toggle('hidden');
+    if (!gallery.classList.contains("hidden")) {
+        const images = gallery.querySelectorAll("img");
+        images.forEach((img, index) => {
+            setTimeout(() => img.classList.add("show"), index * 300);
+        });
+    } else {
+        gallery.querySelectorAll("img").forEach((img) => img.classList.remove("show"));
+    }
 });
 
-// Показать изображение в лайтбоксе
-function showImage(index) {
-  const img = galleryImages[index];
-  lightboxImg.src = img.src;
-  lightbox.classList.remove('hidden');
-  currentIndex = index;
-}
-
-// Переключение изображений
-function nextImage() {
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  showImage(currentIndex);
-}
-
-function prevImage() {
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  showImage(currentIndex);
-}
-
-// Обработчики событий для лайтбокса
-galleryImages.forEach((img, index) => {
-  img.addEventListener('click', () => showImage(index));
+// Закрытие галереи при клике вне её
+document.addEventListener("click", (event) => {
+    if (!gallery.contains(event.target) && event.target !== projectsHeader) {
+        gallery.classList.add("hidden");
+        gallery.querySelectorAll("img").forEach((img) => img.classList.remove("show"));
+    }
 });
-
-nextButton.addEventListener('click', nextImage);
-prevButton.addEventListener('click', prevImage);
-closeButton.addEventListener('click', () => {
-  lightbox.classList.add('hidden');
-});
-
-document.addEventListener('keydown', (e) => {
-  if (!lightbox.classList.contains('hidden')) {
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
-    if (e.key === 'Escape') lightbox.classList.add('hidden');
-  }
-});
-
 
 
     // Получаем все элементы заголовков услуг
@@ -493,11 +452,25 @@ document.addEventListener('keydown', (e) => {
             serviceItem.classList.toggle('active');
         });
     });
-    document.getElementById("projects-title").addEventListener("click", function() {
-    const gallery = document.getElementById("gallery");
-    gallery.classList.toggle("hidden");
+    const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    modalImg.src = img.src;
+  });
 });
 
+document.querySelector(".close").addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
 </script>
 </body>
 </html>
