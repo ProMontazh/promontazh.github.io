@@ -201,6 +201,7 @@
 /* Стили для раздела "Наші проекти" */
 .projects {
     text-align: center;
+    padding: 40px 40px;
     padding: 60px 20px;
     background-color: white;
 }
@@ -211,45 +212,44 @@
 
 /* Галерея */
 .gallery {
-    display: none;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
 
-  .gallery-image {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
 
-  .gallery-image:hover {
-    transform: scale(1.05);
-  }
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
 
-  @media (max-width: 768px) {
-    #gallery {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  display: block;
+}
 
-  .gallery-fullscreen {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .gallery-fullscreen img {
-    max-width: 90%;
-    max-height: 90%;
-  }
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
    .services, .about, .contact {
             padding: 60px 20px;
             text-align: center;
@@ -370,28 +370,29 @@
     </section>
     <section class="projects">
     <h2 id="projects-header">Наші проекти</h2>
-    <div id="gallery" class="gallery">
-  <img src="001.jpeg" alt="Project 1" class="gallery-image">
-  <img src="002.jpeg" alt="Project 2" class="gallery-image">
-  <img src="003.jpeg" alt="Project 3" class="gallery-image">
-  <img src="004.jpeg" alt="Project 4" class="gallery-image">
-  <img src="005.jpeg" alt="Project 5" class="gallery-image">
-  <img src="006.jpeg" alt="Project 6" class="gallery-image">
-  <img src="007.jpeg" alt="Project 7" class="gallery-image">
-  <img src="008.jpeg" alt="Project 8" class="gallery-image">
-  <img src="009.jpeg" alt="Project 9" class="gallery-image">
-  <img src="010.jpeg" alt="Project 10" class="gallery-image">
-  <img src="011.jpeg" alt="Project 11" class="gallery-image">
-  <img src="012.jpeg" alt="Project 12" class="gallery-image">
-  <img src="013.jpeg" alt="Project 13" class="gallery-image">
-  <img src="014.jpeg" alt="Project 14" class="gallery-image">
-  <img src="015.jpeg" alt="Project 15" class="gallery-image">
-  <img src="016.jpeg" alt="Project 16" class="gallery-image">
+    <div class="gallery">
+  <div class="gallery-item"><img src="001.jpeg" alt="Проект 1"></div>
+  <div class="gallery-item"><img src="002.jpeg" alt="Проект 2"></div>
+  <div class="gallery-item"><img src="003.jpeg" alt="Проект 3"></div>
+  <div class="gallery-item"><img src="004.jpeg" alt="Проект 4"></div>
+  <div class="gallery-item"><img src="005.jpeg" alt="Проект 5"></div>
+  <div class="gallery-item"><img src="006.jpeg" alt="Проект 6"></div>
+  <div class="gallery-item"><img src="007.jpeg" alt="Проект 7"></div>
+  <div class="gallery-item"><img src="008.jpeg" alt="Проект 8"></div>
+  <div class="gallery-item"><img src="009.jpeg" alt="Проект 9"></div>
+  <div class="gallery-item"><img src="010.jpeg" alt="Проект 10"></div>
+  <div class="gallery-item"><img src="011.jpeg" alt="Проект 11"></div>
+  <div class="gallery-item"><img src="012.jpeg" alt="Проект 12"></div>
+  <div class="gallery-item"><img src="013.jpeg" alt="Проект 13"></div>
+  <div class="gallery-item"><img src="014.jpeg" alt="Проект 14"></div>
+  <div class="gallery-item"><img src="015.jpeg" alt="Проект 15"></div>
+  <div class="gallery-item"><img src="016.jpeg" alt="Проект 16"></div>
 </div>
-<div id="fullscreen-view" class="gallery-fullscreen" onclick="closeFullscreen()">
-  <img id="fullscreen-image" src="" alt="Fullscreen View">
+          <!-- Modal -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
 </div>
-
 </section>
 <section class="about">
     <h2>О компанії <span class="red">Pro</span><span class="black">Монтаж</span></h2>
@@ -416,31 +417,31 @@
 </footer>
 <script>
     const projectsHeader = document.getElementById("projects-header");
-document.querySelector('.project-title').addEventListener('click', function() {
-        const gallery = document.getElementById('gallery');
-        gallery.classList.toggle('show');
-    });
+const gallery = document.getElementById("gallery");
 
-function showGallery() {
-  document.getElementById('gallery').style.display = 'grid';
-}
+// Переключение отображения галереи
+projectsHeader.addEventListener("click", () => {
+    gallery.classList.toggle("hidden");
 
-function openFullscreen(src) {
-  const fullscreen = document.getElementById('fullscreen-view');
-  const img = document.getElementById('fullscreen-image');
-  img.src = src;
-  fullscreen.style.display = 'flex';
-}
-
-function closeFullscreen() {
-  document.getElementById('fullscreen-view').style.display = 'none';
-}
-
-// Attach click events to images
-const images = document.querySelectorAll('.gallery-image');
-images.forEach(img => {
-  img.addEventListener('click', () => openFullscreen(img.src));
+    if (!gallery.classList.contains("hidden")) {
+        const images = gallery.querySelectorAll("img");
+        images.forEach((img, index) => {
+            setTimeout(() => img.classList.add("show"), index * 300);
+        });
+    } else {
+        gallery.querySelectorAll("img").forEach((img) => img.classList.remove("show"));
+    }
 });
+
+// Закрытие галереи при клике вне её
+document.addEventListener("click", (event) => {
+    if (!gallery.contains(event.target) && event.target !== projectsHeader) {
+        gallery.classList.add("hidden");
+        gallery.querySelectorAll("img").forEach((img) => img.classList.remove("show"));
+    }
+});
+
+
     // Получаем все элементы заголовков услуг
     const serviceHeaders = document.querySelectorAll('.service-item h3');
     // Добавляем событие клика на каждый заголовок
@@ -450,6 +451,25 @@ images.forEach(img => {
             // Переключаем класс active для отображения/скрытия описания
             serviceItem.classList.toggle('active');
         });
+    });
+    const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    modalImg.src = img.src;
+  });
+});
+
+document.querySelector(".close").addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
 });
 </script>
 </body>
