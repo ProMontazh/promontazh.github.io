@@ -416,7 +416,10 @@
 </footer>
 <script>
     const projectsHeader = document.getElementById("projects-header");
-const gallery = document.getElementById("gallery");
+document.querySelector('.project-title').addEventListener('click', function() {
+        const gallery = document.getElementById('gallery');
+        gallery.classList.toggle('show');
+    });
 
 function showGallery() {
   document.getElementById('gallery').style.display = 'grid';
@@ -438,7 +441,6 @@ const images = document.querySelectorAll('.gallery-image');
 images.forEach(img => {
   img.addEventListener('click', () => openFullscreen(img.src));
 });
-
     // Получаем все элементы заголовков услуг
     const serviceHeaders = document.querySelectorAll('.service-item h3');
     // Добавляем событие клика на каждый заголовок
