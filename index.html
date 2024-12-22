@@ -198,31 +198,30 @@
     filter: blur(0.8px); /* Размытие фона */
     z-index: -1; /* Размещаем фон за контентом секции */
 }
-/* Стили для раздела "Наші проекти" */
-.projects {
-    text-align: center;
-    padding: 40px 40px;
-    padding: 60px 20px;
-    background-color: white;
-}
-
-#projects-header {
-    cursor: pointer;
-}
-
-/* Галерея */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+ #projects-gallery {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.gallery-item img {
-  width: 100%;
+#projects-gallery.hidden {
+  display: none;
+}
+
+.gallery-image {
+  width: 100px;
   height: auto;
-  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
-
+.gallery-image.visible {
+  opacity: 1;
+  transform: scale(1);
+}
 /* Модальное окно */
 .modal {
   display: none;
@@ -367,13 +366,12 @@
         <h3>Охоронну сигналізацію</h3>
         <p>Комплексні системи охорони, захистят від несанкціонованого проникнення.</p>
     </div>
-    </section>
-    <section class="projects">
-    <h2 id="projects-header">Наші проекти</h2>
-    <div class="gallery">
-  <div class="gallery-item"><img src="001.jpeg" alt="Проект 1"></div>
-  <div class="gallery-item"><img src="002.jpeg" alt="Проект 2"></div>
-  <div class="gallery-item"><img src="003.jpeg" alt="Проект 3"></div>
+    <section id="projects">
+  <h2 id="projects-header" class="clickable">Наші проекти</h2>
+  <div id="projects-gallery" class="hidden">
+    <img src="001.jpeg" alt="Project 1" class="gallery-image">
+    <img src="002.jpeg" alt="Project 2" class="gallery-image">
+    <img src="003.jpeg" alt="Project 3" class="gallery-image">
   <div class="gallery-item"><img src="004.jpeg" alt="Проект 4"></div>
   <div class="gallery-item"><img src="005.jpeg" alt="Проект 5"></div>
   <div class="gallery-item"><img src="006.jpeg" alt="Проект 6"></div>
@@ -436,6 +434,30 @@ const gallery = document.getElementById("gallery");
     });
     const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImg");
+document.getElementById('projects-header').addEventListener('click', () => {
+  const gallery = document.getElementById('projects-gallery');
+  const images = gallery.querySelectorAll('.gallery-image');
+
+  if (gallery.classList.contains('hidden')) {
+    gallery.classList.remove('hidden');
+
+    setTimeout(() => {
+      images.forEach((image, index) => {
+        setTimeout(() => {
+          image.classList.add('visible');
+        }, index * 200); // Задержка появления каждой фотографии
+      });
+    }, 50); // Небольшая задержка перед началом появления
+  } else {
+    images.forEach((image) => {
+      image.classList.remove('visible');
+    });
+
+    setTimeout(() => {
+      gallery.classList.add('hidden');
+    }, 500); // Задержка для скрытия галереи после исчезновения изображений
+  }
+});
 
 document.querySelectorAll(".gallery-item img").forEach(img => {
   img.addEventListener("click", () => {
