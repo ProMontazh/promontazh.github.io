@@ -212,7 +212,7 @@
 }
 
 .gallery-image {
-  width: calc(50% - 10px); /* Два изображения в строке с учетом отступов */
+  width: calc(10% - 10px); /* Два изображения в строке с учетом отступов */
   height: auto;
   opacity: 0;
   transform: scale(0.9);
@@ -222,6 +222,10 @@
   opacity: 1;
   transform: scale(1);
 }
+ @media (min-width: 768px) {
+  .gallery-image {
+    width: calc(50% - 10px); /* Три изображения в строке для десктопа */
+  }
 /* Модальное окно */
 .modal {
   display: none;
