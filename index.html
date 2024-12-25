@@ -202,9 +202,9 @@
  #projects-gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-10px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   justify-content: center;
 }
@@ -225,7 +225,7 @@
 }
  @media (min-width: 768px) {
   .gallery-image {
-    width: calc(9% - 5px); /* 11 изображений в строке для десктопа */
+    width: calc(9% - 10px); /* 11 изображений в строке для десктопа */
   }
 }
 /* Модальное окно */
@@ -264,7 +264,7 @@
         footer {
             background: linear-gradient(to left, #222222, #dadada); /* Градиентный фон */
             color: white;
-            padding: 20px;
+            padding: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
