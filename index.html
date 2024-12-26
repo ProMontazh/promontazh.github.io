@@ -211,13 +211,28 @@
 #projects-gallery.hidden {
   display: none;
 }
+/* Убираем отступы для галереи */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
 
+/* Стили для изображений в галерее */
 .gallery-image {
-  width: calc(50% - 5px); /* Два изображения в строке с учетом отступов */
-  height: auto;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  flex: 1 1 auto; /* Изображения растягиваются равномерно */
+  max-width: 100%; /* Ограничиваем ширину изображений */
+  height: auto; /* Сохраняем пропорции */
+  margin: 0; /* Убираем отступы между изображениями */
+  padding: 0; /* Убираем внутренние отступы */
+  box-sizing: border-box; /* Для корректной обработки размеров */
+}
+
+/* Убираем отступы для родителя галереи */
+body {
+  margin: 0;
+  padding: 0;
 }
 .gallery-image.visible {
   opacity: 1;
