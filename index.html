@@ -441,72 +441,77 @@ body {
   <p>&copy; 2024 <span class="red">Про</span><span class="black">Монтаж.</span> Всі права захищені.</p>
 </footer>
 <script>
-    const projectsHeader = document.getElementById("projects-header");
-const gallery = document.getElementById("gallery");
-// Получаем все элементы заголовков услуг
-    const serviceHeaders = document.querySelectorAll('.service-item h3');
-    // Добавляем событие клика на каждый заголовок
-    serviceHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const serviceItem = header.parentElement;
-            // Переключаем класс active для отображения/скрытия описания
-            serviceItem.classList.toggle('active');
-        });
-    });
-    document.addEventListener('DOMContentLoaded', () => {
-    const projectsSection = document.querySelector('#projects');
-    const projectsGallery = document.querySelector('#projects-gallery');
+document.addEventListener("DOMContentLoaded", () => {
+  const projectsHeader = document.getElementById("projects-header");
+  const gallery = document.getElementById("projects-gallery");
+  const serviceHeaders = document.querySelectorAll('.service-item h3');
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeModalBtn = document.querySelector(".close");
 
-    if (projectsGallery) {
-        projectsSection.addEventListener('click', () => {
-            projectsGallery.style.opacity = '1';
-            projectsGallery.style.transform = 'translateY(0)';
-        });
-    }
-});
-
-    const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImg");
-document.getElementById('projects-header').addEventListener('click', () => {
-  const gallery = document.getElementById('projects-gallery');
-  const images = gallery.querySelectorAll('.gallery-image');
-
-  if (gallery.classList.contains('hidden')) {
-    gallery.classList.remove('hidden');
-
-    setTimeout(() => {
-      images.forEach((image, index) => {
-        setTimeout(() => {
-          image.classList.add('visible');
-        }, index * 200); // Задержка появления каждой фотографии
+  // Переключение описаний услуг
+  if (serviceHeaders) {
+    serviceHeaders.forEach((header) => {
+      header.addEventListener("click", () => {
+        const serviceItem = header.parentElement;
+        serviceItem.classList.toggle("active");
       });
-    }, 50); // Небольшая задержка перед началом появления
-  } else {
-    images.forEach((image) => {
-      image.classList.remove('visible');
     });
-
-    setTimeout(() => {
-      gallery.classList.add('hidden');
-    }, 500); // Задержка для скрытия галереи после исчезновения изображений
   }
-});
 
-document.querySelectorAll(".gallery-item img").forEach(img => {
-  img.addEventListener("click", () => {
-    modal.style.display = "block";
-    modalImg.src = img.src;
+  // Открытие и закрытие галереи
+  if (projectsHeader && gallery) {
+    projectsHeader.addEventListener("click", () => {
+      const images = gallery.querySelectorAll(".gallery-image");
+
+      if (gallery.classList.contains("hidden")) {
+        gallery.classList.remove("hidden");
+
+        setTimeout(() => {
+          images.forEach((image, index) => {
+            setTimeout(() => {
+              image.classList.add("visible");
+            }, index * 200);
+          });
+        }, 50);
+      } else {
+        images.forEach((image) => {
+          image.classList.remove("visible");
+        });
+
+        setTimeout(() => {
+          gallery.classList.add("hidden");
+        }, 500);
+      }
+    });
+  }
+
+  // Открытие изображения в модальном окне
+  if (modal && modalImg) {
+    document.querySelectorAll(".gallery-item img").forEach((img) => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      });
+    });
+  }
+
+  // Закрытие модального окна
+  const closeModal = () => {
+    if (modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", closeModal);
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
   });
-});
-
-document.querySelector(".close").addEventListener("click", () => {More actions
-  modal.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
 });
 
 </script>
