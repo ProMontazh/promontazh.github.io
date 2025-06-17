@@ -201,21 +201,14 @@
 }
 /* Основной контейнер галереи */
 #projects-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Отступы между изображениями */
   opacity: 0;
   transform: translateY(-20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
-  justify-content: center;
-  visibility: hidden; /* Скрыто по умолчанию */
 }
 #projects-gallery.visible {
   opacity: 1;
   transform: translateY(0);
-  visibility: visible; /* Показываем галерею */
 }
-
 /* Убираем отступы для изображений */
 .gallery-image {
   width: calc(50% - 10px); /* По 2 изображения в строке на мобильных */
