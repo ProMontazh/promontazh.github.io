@@ -447,7 +447,7 @@ body {
 document.addEventListener("DOMContentLoaded", () => {
   const projectsHeader = document.getElementById("projects-header");
   const gallery = document.getElementById("projects-gallery");
-  const serviceHeaders = document.querySelectorAll('.service-item h3');
+  const serviceHeaders = document.querySelectorAll(".service-item h3");
   const modal = document.getElementById("imageModal");
   const modalImg = document.getElementById("modalImg");
   const closeModalBtn = document.querySelector(".close");
@@ -464,34 +464,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Открытие и закрытие галереи
   if (projectsHeader && gallery) {
+    const images = gallery.querySelectorAll(".gallery-image");
+
     projectsHeader.addEventListener("click", () => {
-      const images = gallery.querySelectorAll(".gallery-image");
-
-      if (gallery.classList.contains("hidden")) {
-        gallery.classList.remove("hidden");
-
+      if (gallery.classList.contains("visible")) {
+        images.forEach((img) => img.classList.remove("visible"));
         setTimeout(() => {
-          images.forEach((image, index) => {
+          gallery.classList.remove("visible");
+          gallery.style.visibility = "hidden";
+        }, 500); // Убедитесь, что все изображения исчезли
+      } else {
+        gallery.style.visibility = "visible";
+        gallery.classList.add("visible");
+        setTimeout(() => {
+          images.forEach((img, index) => {
             setTimeout(() => {
-              image.classList.add("visible");
+              img.classList.add("visible");
             }, index * 200);
           });
         }, 50);
-      } else {
-        images.forEach((image) => {
-          image.classList.remove("visible");
-        });
-
-        setTimeout(() => {
-          gallery.classList.add("hidden");
-        }, 500);
       }
     });
   }
 
   // Открытие изображения в модальном окне
   if (modal && modalImg) {
-    document.querySelectorAll(".gallery-item img").forEach((img) => {
+    document.querySelectorAll(".gallery-image").forEach((img) => {
       img.addEventListener("click", () => {
         modal.style.display = "block";
         modalImg.src = img.src;
@@ -515,31 +513,6 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const projectsHeader = document.getElementById("projects-header");
-  const gallery = document.getElementById("projects-gallery");
-  const images = gallery?.querySelectorAll(".gallery-image");
-
-  if (projectsHeader && gallery && images) {
-    projectsHeader.addEventListener("click", () => {
-      if (gallery.classList.contains("visible")) {
-        images.forEach((img) => img.classList.remove("visible"));
-        setTimeout(() => {
-          gallery.classList.remove("visible");
-        }, 500); // Убедитесь, что все изображения исчезли
-      } else {
-        gallery.classList.add("visible");
-        setTimeout(() => {
-          images.forEach((img, index) => {
-            setTimeout(() => {
-              img.classList.add("visible");
-            }, index * 200);
-          });
-        }, 50);
-      }
-    });
-  }
 });
 
 </script>
