@@ -494,15 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.querySelector(".modal");
   const modalImg = document.querySelector(".modal-content");
   const closeModalBtn = document.querySelector(".close");
-  // Переключение описаний услуг
-  if (serviceHeaders) {
-    serviceHeaders.forEach((header) => {
-      header.addEventListener("click", () => {
-        const serviceItem = header.parentElement;
-        serviceItem.classList.toggle("active");
-      });
-    });
-  }
+
   // Открытие галереи
   projectsHeader.addEventListener("click", () => {
     gallery.classList.toggle("visible");
@@ -538,6 +530,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+      // Переключение описаний услуг
+  if (serviceHeaders) {
+    serviceHeaders.forEach((header) => {
+      header.addEventListener("click", () => {
+        const serviceItem = header.parentElement;
+        serviceItem.classList.toggle("active");
+      });
+    });
+  }
 </script>
 </section>
 </body>
