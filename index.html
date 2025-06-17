@@ -516,6 +516,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const projectsHeader = document.getElementById("projects-header");
+  const gallery = document.getElementById("projects-gallery");
+  const images = gallery?.querySelectorAll(".gallery-image");
+
+  if (projectsHeader && gallery && images) {
+    projectsHeader.addEventListener("click", () => {
+      if (gallery.classList.contains("visible")) {
+        images.forEach((img) => img.classList.remove("visible"));
+        setTimeout(() => {
+          gallery.classList.remove("visible");
+        }, 500); // Убедитесь, что все изображения исчезли
+      } else {
+        gallery.classList.add("visible");
+        setTimeout(() => {
+          images.forEach((img, index) => {
+            setTimeout(() => {
+              img.classList.add("visible");
+            }, index * 200);
+          });
+        }, 50);
+      }
+    });
+  }
+});
 
 </script>
 </section>
