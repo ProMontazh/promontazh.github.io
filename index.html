@@ -455,28 +455,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.getElementById("projects-gallery");
   const projectsHeader = document.getElementById("projects-header");
   const images = document.querySelectorAll(".gallery-image");
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
-  document.body.appendChild(modal);
-
-  // Создаем контейнер для изображений внутри модального окна
-  const modalContent = document.createElement("div");
-  modalContent.classList.add("modal-content");
-  modal.appendChild(modalContent);
-
-  // Наполняем модальное окно изображениями
-  images.forEach((img, index) => {
-    const modalImg = document.createElement("img");
-    modalImg.src = img.src;
-    modalImg.classList.add("modal-image");
-    modalImg.dataset.index = index;
-    modalContent.appendChild(modalImg);
-  });
-
-  const closeModal = () => {
-    modal.style.display = "none";
-    modalContent.scrollLeft = 0; // Сбрасываем прокрутку
-  };
+  const modal = document.querySelector(".modal");
+  const modalImg = document.querySelector(".modal-content");
+  const closeModalBtn = document.querySelector(".close");
+  const serviceHeaders = document.querySelectorAll(".service-item h3");
 
   // Открытие галереи
   if (projectsHeader && gallery) {
@@ -495,34 +477,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Открытие модального окна
-  if (images && modalContent) {
+  // Открытие изображения в модальном окне
+  if (images && modal && modalImg) {
     images.forEach((img) => {
       img.addEventListener("click", () => {
         modal.style.display = "flex";
-
-        // Прокручиваем к изображению
-        const targetImg = modalContent.querySelector(`.modal-image[data-index='${img.dataset.index}']`);
-        if (targetImg) {
-          modalContent.scrollLeft = targetImg.offsetLeft - modalContent.offsetLeft;
-        }
+        modalImg.src = img.src;
       });
     });
   }
 
-  // Закрытие модального окна при клике на изображение
-  modalContent.addEventListener("click", (e) => {
-    if (e.target.classList.contains("modal-image")) {
-      closeModal();
-    }
-  });
+  // Закрытие модального окна
+  if (modal && closeModalBtn) {
+    const closeModal = () => {
+      modal.style.display = "none";
+    };
 
-  // Закрытие модального окна при клике вне изображений
-  modal.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("modal-image")) {
-      closeModal();
-    }
-  });
+    closeModalBtn.addEventListener("click", closeModal);
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Переключение описаний услуг
+  if (serviceHeaders) {
+    serviceHeaders.forEach((header) => {
+      header.addEventListener("click", () => {
+        const serviceItem = header.parentElement;
+        serviceItem.classList.toggle("active");
+      });
+    });
+  }
 });
 </script>
 </section>
