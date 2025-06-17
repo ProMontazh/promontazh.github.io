@@ -494,43 +494,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.querySelector(".modal");
   const modalImg = document.querySelector(".modal-content");
   const closeModalBtn = document.querySelector(".close");
+  const serviceHeaders = document.querySelectorAll(".service-item h3");
 
   // Открытие галереи
-  projectsHeader.addEventListener("click", () => {
-    gallery.classList.toggle("visible");
+  if (projectsHeader && gallery) {
+    projectsHeader.addEventListener("click", () => {
+      gallery.classList.toggle("visible");
 
-    if (gallery.classList.contains("visible")) {
-      images.forEach((img, index) => {
-        setTimeout(() => {
-          img.classList.add("visible");
-        }, index * 100);
-      });
-    } else {
-      images.forEach((img) => img.classList.remove("visible"));
-    }
-  });
+      if (gallery.classList.contains("visible")) {
+        images.forEach((img, index) => {
+          setTimeout(() => {
+            img.classList.add("visible");
+          }, index * 100);
+        });
+      } else {
+        images.forEach((img) => img.classList.remove("visible"));
+      }
+    });
+  }
 
   // Открытие изображения в модальном окне
-  images.forEach((img) => {
-    img.addEventListener("click", () => {
-      modal.style.display = "flex";
-      modalImg.src = img.src;
+  if (images && modal && modalImg) {
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
     });
-  });
+  }
 
   // Закрытие модального окна
-  const closeModal = () => {
-    modal.style.display = "none";
-  };
+  if (modal && closeModalBtn) {
+    const closeModal = () => {
+      modal.style.display = "none";
+    };
 
-  closeModalBtn.addEventListener("click", closeModal);
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-});
-      // Переключение описаний услуг
+    closeModalBtn.addEventListener("click", closeModal);
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Переключение описаний услуг
   if (serviceHeaders) {
     serviceHeaders.forEach((header) => {
       header.addEventListener("click", () => {
@@ -539,6 +546,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+});
 </script>
 </section>
 </body>
