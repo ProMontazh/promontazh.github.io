@@ -241,7 +241,6 @@
     width: calc(20% - 10px); /* 5 изображений в строке на десктопе */
   }
 }
-
 /* Модальное окно */
 .modal {
   display: none;
@@ -255,31 +254,17 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .modal-content {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  overflow-x: auto; /* Добавляем боковую прокрутку */
-  scroll-snap-type: x mandatory; /* Плавное пролистывание */
-}
-
-.modal-image {
-  flex-shrink: 0;
   width: auto;
-  height: 80%;
-  margin: 0 10px;
+  max-width: 90%;
+  height: auto;
+  max-height: 90%;
   object-fit: contain;
-  scroll-snap-align: center;
-  cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease;
 }
-
-.modal-image:hover {
-  transform: scale(1.05); /* Легкий эффект увеличения */
-}
-
    .services, .about, .contact {
             padding: 60px 20px;
             text-align: center;
@@ -457,8 +442,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll(".gallery-image");
   const modal = document.querySelector(".modal");
   const modalImg = document.querySelector(".modal-content");
-  const closeModalBtn = document.querySelector(".close");
-  const serviceHeaders = document.querySelectorAll(".service-item h3");
 
   // Открытие галереи
   if (projectsHeader && gallery) {
@@ -480,34 +463,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Открытие изображения в модальном окне
   if (images && modal && modalImg) {
     images.forEach((img) => {
-      img.addEventListener("click", () => {
+      img.addEventListener("click", (e) => {
+        e.stopPropagation(); // Предотвращаем закрытие модального окна при клике на изображение
         modal.style.display = "flex";
         modalImg.src = img.src;
+        modalImg.style.transform = "scale(1)";
       });
     });
   }
 
   // Закрытие модального окна
-  if (modal && closeModalBtn) {
-    const closeModal = () => {
+  if (modal) {
+    modal.addEventListener("click", () => {
       modal.style.display = "none";
-    };
-
-    closeModalBtn.addEventListener("click", closeModal);
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-  }
-
-  // Переключение описаний услуг
-  if (serviceHeaders) {
-    serviceHeaders.forEach((header) => {
-      header.addEventListener("click", () => {
-        const serviceItem = header.parentElement;
-        serviceItem.classList.toggle("active");
-      });
+      modalImg.style.transform = "scale(0.8)";
     });
   }
 });
