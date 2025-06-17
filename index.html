@@ -79,6 +79,7 @@
             margin-top: 8px;
             color: white; /* Білий колір тексту */
         }
+
         .red {
             color: #f44336;
         }
@@ -86,6 +87,7 @@
         .black {
             color: black;
         }
+
         .hero {
             background-color: rgba(0, 0, 0, 0.05); /* Полупрозрачный черный фон */
             background-image: url('fon2.jpg'); /* Фонове зображення */
@@ -107,13 +109,16 @@
                 padding: 20px; /* Відступи всередині секції */
                 margin-top: 0px; /* Поднимаем заголовок на 20px */
                 font-size: 1.4rem; /* Можно увеличить размер шрифта для лучшей видимости на мобильных устройствах */
-                }
+
+                   }
             }
-         @keyframes fadeIn {
+
+        @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-    .hero h2 {
+
+        .hero h2 {
     font-size: 1.6rem;
     margin: 35px 0 10px; /* Уменьшаем верхний отступ */
     position: relative;
@@ -124,11 +129,13 @@
     backdrop-filter: blur(2px); /* Размытие фона */
     border-radius: 10px; /* Скругленные углы */
     animation: slideDown 1s ease-in-out;
+
         }
          @keyframes slideDown {
             from { transform: translateY(-50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
         .hero p {
             font-size: 1.0rem;
             font-family: 'Open Sans', sans-serif; /* Новый шрифт */
@@ -141,6 +148,7 @@
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
         .btn {
             background-color: #f44336;
             color: white;
@@ -155,6 +163,7 @@
             text-decoration: none; /* Убираем подчеркивание для ссылок */
             display: inline-block; /* Для того, чтобы стили кнопки применялись к ссылке */
         }
+
         @keyframes pulse {
            0% { transform: scale(1); }
           37% { transform: scale(1.03); }
@@ -163,6 +172,7 @@
           52% { transform: scale(1.05); }
          100% { transform: scale(1); }
         }
+
         .btn:hover {
             background-color: #d32f2f;
         }
@@ -174,6 +184,7 @@
     z-index: 1; /* Размещаем контент над фоном */
     overflow: hidden; /* Скрываем фон, выходящий за границы секции */
 }
+
 .about::before {
     content: "";
     position: absolute;
@@ -207,6 +218,7 @@
   margin: 0;
   padding: 0;
 }
+
 /* Стили для изображений в галерее */
 .gallery-image {
   flex: 1 1 auto; /* Изображения растягиваются равномерно */
@@ -216,6 +228,7 @@
   padding: 0; /* Убираем внутренние отступы */
   box-sizing: border-box; /* Для корректной обработки размеров */
 }
+
 /* Убираем отступы для родителя галереи */
 body {
   margin: 0;
@@ -241,12 +254,14 @@ body {
   height: 100%;
   background-color: rgba(0,0,0,0.8);
 }
+
 .modal-content {
   max-width: 90%;
   max-height: 90%;
   margin: auto;
   display: block;
 }
+
 .close {
   position: absolute;
   top: 20px;
@@ -260,10 +275,11 @@ body {
             text-align: center;
             background-color: white; /* Білий фон для секцій */
         }
+
         footer {
             background: linear-gradient(to left, #222222, #dadada); /* Градиентный фон */
             color: white;
-            padding: 0px;
+            padding: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -483,11 +499,11 @@ document.querySelectorAll(".gallery-item img").forEach(img => {
   });
 });
 
-document.querySelector(".close").addEventListener("click", () => {
+document.querySelector(".close").addEventListener("click", () => {More actions
   modal.style.display = "none";
 });
 
-window.addEventListener("click", (e) => {More actions
+window.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.style.display = "none";
   }
