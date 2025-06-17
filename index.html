@@ -93,7 +93,7 @@
             background-image: url('fon2.jpg'); /* Фонове зображення */
             background-size: cover; /* Розмір фону */
             background-position: center; /* Центрування фону */
-            height: 50vh; /* Висота 33% від висоти вікна */
+            height: 35vh; /* Висота 33% від висоти вікна */
             text-align: center;
             color: rgb(29, 29, 29);
             position: relative;
@@ -416,7 +416,7 @@ body {
           <!-- Modal -->
 <div class="modal">
     <span class="close">&times;</span>
-     <img class="modal-content" src="" alt="Изображение">
+     <img class="modal-content" src="modal-content" alt="Изображение">
 </div>
 </section>
 <section class="about">
@@ -435,7 +435,7 @@ body {
         <a href="viber://add?number=380935016040"><img src="Viber.png" alt="Viber"></a>
     </div>
     <a href="mailto:promontazh.kharkiv@ukr.net?subject=Запит%20на%20послугу&body=" class="btn">promontazh.kharkiv@ukr.net</a>
-    </div>
+
 </section>
 <footer role="contentinfo">
   <p>&copy; 2024 <span class="red">Про</span><span class="black">Монтаж.</span> Всі права захищені.</p>
@@ -499,16 +499,14 @@ document.querySelectorAll(".gallery-item img").forEach(img => {
   });
 });
 
-document.querySelector(".close").addEventListener("click", () => {
+document.querySelector(".close").addEventListener("click", () => {More actions
   modal.style.display = "none";
 });
 
 window.addEventListener("click", (e) => {
-  if (e.target === modal) {More actions
+  if (e.target === modal) {
     modal.style.display = "none";
   }
 });
 
 </script>
-</body>
-</html>
