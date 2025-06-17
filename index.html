@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -205,13 +205,14 @@
   visibility: hidden;
   height: 0;
   overflow: hidden;
-  transition: opacity 0.5s ease, height 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease;
 }
 
 #projects-gallery.visible {
   opacity: 1;
   visibility: visible;
-  height: auto;
+  height: auto; /* Автоматически подстраивается под контент */
+  transform: translateY(0);
 }
 
 .gallery {
@@ -221,8 +222,9 @@
 }
 
 .gallery-image {
-  flex: 1 1 calc(50% - 10px); /* По 2 изображения в строке */
-  cursor: pointer;
+  flex: 1 1 auto;
+  width: calc(50% - 10px); /* По 2 изображения в строке */
+  height: auto;
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
   transform: scale(0.9);
@@ -233,12 +235,11 @@
   transform: scale(1);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) {Add commentMore actions
   .gallery-image {
-    flex: 1 1 calc(20% - 10px); /* 5 изображений в строке на десктопе */
+     width: calc(9% - 10px); /* 5 изображений в строке на десктопе */
   }
 }
-
 /* Модальное окно */
 .modal {
   display: none;
@@ -249,8 +250,6 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
 }
 
 .modal-content {
@@ -268,7 +267,6 @@
   font-size: 40px;
   cursor: pointer;
 }
-
 /* Стили для увеличенного изображения */
 .gallery-image.fullscreen {
   position: fixed;
@@ -461,40 +459,90 @@ body {
 document.addEventListener("DOMContentLoaded", () => {
   const projectsHeader = document.getElementById("projects-header");
   const gallery = document.getElementById("projects-gallery");
-  const images = gallery.querySelectorAll(".gallery-image");
-  const modal = document.querySelector(".modal");
-  const modalImg = document.querySelector(".modal-content");
+  const serviceHeaders = document.querySelectorAll(".service-item h3");
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
   const closeModalBtn = document.querySelector(".close");
 
-  // Переключение галереи
-  if (projectsHeader && gallery) {
-    projectsHeader.addEventListener("click", () => {
-      if (gallery.classList.contains("visible")) {
-        gallery.classList.remove("visible");
-      } else {
-        gallery.classList.add("visible");
-      }
+  // Переключение описаний услуг
+  if (serviceHeaders) {
+    serviceHeaders.forEach((header) => {
+      header.addEventListener("click", () => {
+        const serviceItem = header.parentElement;
+        serviceItem.classList.toggle("active");
+      });
     });
   }
 
-  // Увеличение изображения на весь экран
+  // Открытие и закрытие галереи
+  if (projectsHeader && gallery) {
+    const images = gallery.querySelectorAll(".gallery-image");
+
+    projectsHeader.addEventListener("click", () => {
+      if (gallery.classList.contains("visible")) {
+        images.forEach((img) => img.classList.remove("visible"));
+        setTimeout(() => {
+          gallery.classList.remove("visible");
+          gallery.style.visibility = "hidden";
+        }, 500); // Убедитесь, что все изображения исчезли
+      } else {
+        gallery.style.visibility = "visible";
+        gallery.classList.add("visible");
+        setTimeout(() => {
+          images.forEach((img, index) => {
+            setTimeout(() => {
+              img.classList.add("visible");
+            }, index * 200);
+          });
+        }, 50);
+      }
+    });
+  }
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".gallery-image");
+
   images.forEach((img) => {
     img.addEventListener("click", () => {
-      modal.style.display = "block";
-      modalImg.src = img.src;
+      // Если изображение уже увеличено
+      if (img.classList.contains("fullscreen")) {
+        img.classList.remove("fullscreen");
+      } else {
+        // Убираем класс fullscreen у других изображений
+        document.querySelectorAll(".gallery-image.fullscreen").forEach((el) => {
+          el.classList.remove("fullscreen");
+        });Add commentMore actions
+
+        // Увеличиваем текущее изображение
+        img.classList.add("fullscreen");
+      }
     });
   });
+});
+
+  // Открытие изображения в модальном окне
+  if (modal && modalImg) {
+    document.querySelectorAll(".gallery-image").forEach((img) => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      });
+    });
+  }
 
   // Закрытие модального окна
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", () => {
+  const closeModal = () => {
+    if (modal) {
       modal.style.display = "none";
-    });
+    }
+  };
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", closeModal);
   }
 
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
-      modal.style.display = "none";
+      closeModal();
     }
   });
 });
