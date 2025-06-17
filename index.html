@@ -498,6 +498,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".gallery-image");
+
+  images.forEach((img) => {
+    img.addEventListener("click", () => {
+      // Если изображение уже увеличено
+      if (img.classList.contains("fullscreen")) {
+        img.classList.remove("fullscreen");
+      } else {
+        // Убираем класс fullscreen у других изображений
+        document.querySelectorAll(".gallery-image.fullscreen").forEach((el) => {
+          el.classList.remove("fullscreen");
+        });
+
+        // Увеличиваем текущее изображение
+        img.classList.add("fullscreen");
+      }
+    });
+  });
+});
 
   // Открытие изображения в модальном окне
   if (modal && modalImg) {
