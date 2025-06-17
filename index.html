@@ -199,47 +199,7 @@
     filter: blur(0.8px); /* Размытие фона */
     z-index: -1; /* Размещаем фон за контентом секции */
 }
-/* Основной контейнер галереи */
-#projects-gallery {
-  opacity: 0;
-  visibility: hidden;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease;
-}
 
-#projects-gallery.visible {
-  opacity: 1;
-  visibility: visible;
-  height: auto; /* Автоматически подстраивается под контент */
-  transform: translateY(0);
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.gallery-image {
-  flex: 1 1 auto;
-  width: calc(50% - 10px); /* По 2 изображения в строке */
-  height: auto;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 0;
-  transform: scale(0.9);
-}
-
-.gallery-image.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-@media (min-width: 768px) {Add commentMore actions
-  .gallery-image {
-     width: calc(9% - 10px); /* 5 изображений в строке на десктопе */
-  }
-}
 /* Основной контейнер галереи */
 #projects-gallery {
   opacity: 0;
