@@ -202,36 +202,44 @@
 /* Основной контейнер галереи */
 #projects-gallery {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease;
 }
+
 #projects-gallery.visible {
   opacity: 1;
+  visibility: visible;
+  height: auto; /* Автоматически подстраивается под контент */
   transform: translateY(0);
 }
-/* Убираем отступы для изображений */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
 .gallery-image {
-  width: calc(50% - 10px); /* По 2 изображения в строке на мобильных */
+  flex: 1 1 auto;
+  width: calc(50% - 10px); /* По 2 изображения в строке */
   height: auto;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
   transform: scale(0.9);
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
+
 .gallery-image.visible {
   opacity: 1;
   transform: scale(1);
 }
 
-/* Галерея для десктопа */
 @media (min-width: 768px) {
   .gallery-image {
-    width: calc((100% / 6) - 10px); /* По 6 изображений в строке */
+    width: calc(20% - 10px); /* 5 изображений в строке на десктопе */
   }
 }
-
 /* Модальное окно */
 .modal {
   display: none;
