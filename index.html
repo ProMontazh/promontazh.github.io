@@ -287,21 +287,38 @@
   display: none;
   position: fixed;
   z-index: 1000;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .modal-content {
-  max-width: 90%;
-  max-height: 90%;
-  display: block;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow-x: auto; /* Добавляем боковую прокрутку */
+  scroll-snap-type: x mandatory; /* Плавное пролистывание */
 }
 
+.modal-image {
+  flex-shrink: 0;
+  width: auto;
+  height: 80%;
+  margin: 0 10px;
+  object-fit: contain;
+  scroll-snap-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.modal-image:hover {
+  transform: scale(1.05); /* Легкий эффект увеличения */
+}
 .close {
   position: absolute;
   top: 20px;
