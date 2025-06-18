@@ -304,15 +304,21 @@
         }
 
         /* Описание услуг изначально скрыто */
-        .service-item p {
-            display: none;
-            margin-top: 10px;
-        }
+.service-item p {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.5s ease, visibility 0.5s ease;
+}
 
-        /* Когда добавляется класс .active, описание становится видимым */
-        .service-item.active p {
-            display: block;
-        }
+/* Когда добавляется класс .active, описание становится видимым */
+.service-item.active p {
+  opacity: 1;
+  visibility: visible;
+  max-height: 100px; /* Ограничение высоты, чтобы переход работал */
+}
+
         /* Анимация появления слева */
 @keyframes slideInFromLeft {
     0% {
@@ -480,6 +486,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+    document.addEventListener("DOMContentLoaded", () => {
+  const serviceItems = document.querySelectorAll(".service-item");
+
+  serviceItems.forEach((item) => {
+    const header = item.querySelector("h3");
+
+    header.addEventListener("click", () => {
+      // Переключение класса .active
+      item.classList.toggle("active");
+
+      // Убираем класс .active с других элементов
+      serviceItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.classList.remove("active");
+        }
+      });
+    });
+  });
+});
+
 </script>
 </section>
 </body>
