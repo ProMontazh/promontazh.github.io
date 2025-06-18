@@ -79,15 +79,12 @@
             margin-top: 8px;
             color: white; /* Білий колір тексту */
         }
-
         .red {
             color: #f44336;
         }
-
         .black {
             color: black;
         }
-
         .hero {
             background-color: rgba(0, 0, 0, 0.05); /* Полупрозрачный черный фон */
             background-image: url('fon2.jpg'); /* Фонове зображення */
@@ -109,16 +106,13 @@
                 padding: 20px; /* Відступи всередині секції */
                 margin-top: 0px; /* Поднимаем заголовок на 20px */
                 font-size: 1.4rem; /* Можно увеличить размер шрифта для лучшей видимости на мобильных устройствах */
-
-                   }
+                }
             }
-
-        @keyframes fadeIn {
+     @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
-        .hero h2 {
+    .hero h2 {
     font-size: 1.6rem;
     margin: 35px 0 10px; /* Уменьшаем верхний отступ */
     position: relative;
@@ -129,13 +123,11 @@
     backdrop-filter: blur(2px); /* Размытие фона */
     border-radius: 10px; /* Скругленные углы */
     animation: slideDown 1s ease-in-out;
-
         }
          @keyframes slideDown {
             from { transform: translateY(-50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
         .hero p {
             font-size: 1.0rem;
             font-family: 'Open Sans', sans-serif; /* Новый шрифт */
@@ -148,7 +140,6 @@
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
         .btn {
             background-color: #f44336;
             color: white;
@@ -163,7 +154,6 @@
             text-decoration: none; /* Убираем подчеркивание для ссылок */
             display: inline-block; /* Для того, чтобы стили кнопки применялись к ссылке */
         }
-
         @keyframes pulse {
            0% { transform: scale(1); }
           37% { transform: scale(1.03); }
@@ -172,7 +162,6 @@
           52% { transform: scale(1.05); }
          100% { transform: scale(1); }
         }
-
         .btn:hover {
             background-color: #d32f2f;
         }
@@ -184,7 +173,6 @@
     z-index: 1; /* Размещаем контент над фоном */
     overflow: hidden; /* Скрываем фон, выходящий за границы секции */
 }
-
 .about::before {
     content: "";
     position: absolute;
@@ -199,7 +187,6 @@
     filter: blur(0.8px); /* Размытие фона */
     z-index: -1; /* Размещаем фон за контентом секции */
 }
-
 /* Основной контейнер галереи */
 #projects-gallery {
   opacity: 0;
@@ -209,14 +196,12 @@
   transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease;
   margin: 0 auto; /* Центрируем галерею */
 }
-
 #projects-gallery.visible {
   opacity: 1;
   visibility: visible;
   height: auto;
   transform: translateY(0);
 }
-
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -224,7 +209,6 @@
   padding: 0; /* Убираем отступы по краям */
   margin: 0; /* Убираем отступы по краям */
 }
-
 .gallery-image {
   flex: 1 1 auto;
   width: calc(50% - 10px); /* По 2 изображения в строке */
@@ -233,18 +217,15 @@
   opacity: 0;
   transform: scale(0.9);
 }
-
 .gallery-image.visible {
   opacity: 1;
   transform: scale(1);
 }
-
 @media (min-width: 768px) {
   .gallery-image {
     width: calc(20% - 10px); /* 5 изображений в строке на десктопе */
   }
 }
-
 /* Модальное окно */
 .modal {
   display: none;
@@ -260,7 +241,6 @@
   overflow: hidden;
   cursor: pointer;
 }
-
 .modal-content {
   width: auto;
   max-width: 90%;
@@ -274,32 +254,26 @@
   text-align: center;
   background-color: white; /* Белый фон для секций */
 }
-
 .service-item {
   margin-bottom: 10px; /* Уменьшенный отступ между услугами */
 }
-
 .service-item h3 {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   margin-bottom: 5px; /* Уменьшаем отступ между заголовком и описанием */
 }
-
 .service-item h3:hover {
   transform: scale(1.1);
 }
-
 /* Описание услуг изначально скрыто */
 .service-item p {
   display: none;
   margin: 0; /* Убираем дополнительные отступы */
 }
-
 /* Когда добавляется класс .active, описание становится видимым */
 .service-item.active p {
   display: block;
 }
-
 footer {
   background: linear-gradient(to left, #222222, #dadada); /* Градиентный фон */
   color: white;
@@ -311,17 +285,14 @@ footer {
   gap: 10px; /* Отступы между элементами в футере */
   text-align: center;
 }
-
 .messenger-icons {
   margin-top: 10px; /* Уменьшенный отступ сверху */
 }
-
 .messenger-icons img {
   width: 40px;
   margin: 0 5px; /* Уменьшенный отступ между иконками */
   transition: transform 0.3s;
 }
-
 .messenger-icons img:hover {
   transform: scale(1.2);
 }
@@ -336,7 +307,6 @@ footer {
         transform: translateX(0); /* Элемент возвращается на свое место */
     }
 }
-
 /* Применение анимации с разной задержкой для каждого элемента */
 .service-item {
     opacity: 0; /* Изначально элементы невидимы */
@@ -346,22 +316,18 @@ footer {
 .service-item:nth-child(1) {
     animation-delay: 0.0s; /* Задержка для первого элемента */
 }
-
 .service-item:nth-child(2) {
     animation-delay: 1.2s; /* Задержка для второго элемента */
 }
-
 .service-item:nth-child(3) {
     animation-delay: 2.6s; /* Задержка для третьего элемента */
 }
-
 .service-item:nth-child(4) {
     animation-delay: 4.0s; /* Задержка для четвертого элемента */
 }
    </style>
 </head>
 <body>
-
 <header role="banner">
   <div>
       <h1 class="company-name"><span class="red">Про</span><span class="black">Монтаж</span></h1>
@@ -381,7 +347,6 @@ footer {
 
 <section class="services">
     <h2>Встановлюємо</h2>
-
     <div class="service-item">
         <h3>Відеоспостереження</h3>
         <p>Сучасні системи відеоспостереження з можливістю віддаленого доступу.</p>
