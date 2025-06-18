@@ -460,8 +460,12 @@ document.addEventListener("DOMContentLoaded", () => {
   serviceItems.forEach((item) => {
     const header = item.querySelector("h3");
     header.addEventListener("click", () => {
-      serviceItems.forEach((i) => i.classList.remove("active")); // Сворачиваем все услуги
-      item.classList.add("active"); // Разворачиваем текущую
+      if (item.classList.contains("active")) {
+        item.classList.remove("active"); // Сворачиваем текущую услугу
+      } else {
+        serviceItems.forEach((i) => i.classList.remove("active")); // Сворачиваем все услуги
+        item.classList.add("active"); // Разворачиваем текущую
+      }
     });
   });
 
@@ -502,6 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 </script>
 </section>
 </body>
