@@ -207,6 +207,7 @@
   height: 0;
   overflow: hidden;
   transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease;
+  margin: 0 auto; /* Центрируем галерею */
 }
 
 #projects-gallery.visible {
@@ -220,6 +221,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  padding: 0; /* Убираем отступы по краям */
+  margin: 0; /* Убираем отступы по краям */
 }
 
 .gallery-image {
@@ -238,9 +241,10 @@
 
 @media (min-width: 768px) {
   .gallery-image {
-    width: calc(9% - 10px); /* 5 изображений в строке на десктопе */
+    width: calc(20% - 10px); /* 5 изображений в строке на десктопе */
   }
 }
+
 /* Модальное окно */
 .modal {
   display: none;
@@ -265,67 +269,62 @@
   object-fit: contain;
   transition: transform 0.3s ease;
 }
-   .services, .about, .contact {
-            padding: 60px 20px;
-            text-align: center;
-            background-color: white; /* Білий фон для секцій */
-        }
+  .services {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: white; /* Белый фон для секций */
+}
 
-        footer {
-            background: linear-gradient(to left, #222222, #dadada); /* Градиентный фон */
-            color: white;
-            padding: 0px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            }
+.service-item {
+  margin-bottom: 10px; /* Уменьшенный отступ между услугами */
+}
 
-        .messenger-icons {
-            margin-top: 20px;
-        }
+.service-item h3 {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 5px; /* Уменьшаем отступ между заголовком и описанием */
+}
 
-        .messenger-icons img {
-            width: 40px;
-            margin: 0 10px;
-            transition: transform 0.3s;
-        }
+.service-item h3:hover {
+  transform: scale(1.1);
+}
 
-        .messenger-icons img:hover {
-            transform: scale(1.2);
-        }
-         /* Эффект увеличения заголовков при наведении */
-         .service-item h3 {
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .service-item h3:hover {
-            transform: scale(1.1);
-        }
-
-        /* Описание услуг изначально скрыто */
+/* Описание услуг изначально скрыто */
 .service-item p {
-  opacity: 0;
-  visibility: hidden;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.5s ease, max-height 0.5s ease, visibility 0.5s ease;
+  display: none;
+  margin: 0; /* Убираем дополнительные отступы */
 }
 
 /* Когда добавляется класс .active, описание становится видимым */
 .service-item.active p {
-  opacity: 1;
-  visibility: visible;
-  max-height: 50px; /* Ограничение высоты, чтобы переход работал */
-}
-.service-item {
-  margin-bottom: 5px; /* Уменьшите отступ между услугами */
+  display: block;
 }
 
-.service-item p {
-  margin-top: 5px; /* Уменьшите отступ между заголовком и описанием */
+footer {
+  background: linear-gradient(to left, #222222, #dadada); /* Градиентный фон */
+  color: white;
+  padding: 20px 10px; /* Исправленные отступы */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Отступы между элементами в футере */
+  text-align: center;
 }
 
+.messenger-icons {
+  margin-top: 10px; /* Уменьшенный отступ сверху */
+}
+
+.messenger-icons img {
+  width: 40px;
+  margin: 0 5px; /* Уменьшенный отступ между иконками */
+  transition: transform 0.3s;
+}
+
+.messenger-icons img:hover {
+  transform: scale(1.2);
+}
         /* Анимация появления слева */
 @keyframes slideInFromLeft {
     0% {
@@ -450,11 +449,21 @@
 </footer>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const serviceItems = document.querySelectorAll(".service-item");
   const gallery = document.getElementById("projects-gallery");
   const projectsHeader = document.getElementById("projects-header");
   const images = document.querySelectorAll(".gallery-image");
   const modal = document.querySelector(".modal");
   const modalImg = document.querySelector(".modal-content");
+
+  // Переключение услуг
+  serviceItems.forEach((item) => {
+    const header = item.querySelector("h3");
+    header.addEventListener("click", () => {
+      serviceItems.forEach((i) => i.classList.remove("active")); // Сворачиваем все услуги
+      item.classList.add("active"); // Разворачиваем текущую
+    });
+  });
 
   // Открытие галереи
   if (projectsHeader && gallery) {
@@ -493,26 +502,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-    document.addEventListener("DOMContentLoaded", () => {
-  const serviceItems = document.querySelectorAll(".service-item");
-
-  serviceItems.forEach((item) => {
-    const header = item.querySelector("h3");
-
-    header.addEventListener("click", () => {
-      // Переключение класса .active
-      item.classList.toggle("active");
-
-      // Убираем класс .active с других элементов
-      serviceItems.forEach((otherItem) => {
-        if (otherItem !== item) {
-          otherItem.classList.remove("active");
-        }
-      });
-    });
-  });
-});
-
 </script>
 </section>
 </body>
