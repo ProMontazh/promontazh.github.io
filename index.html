@@ -277,8 +277,9 @@
 .service-item p {
   opacity: 0;
   max-height: 0;
+  transform: translateY(2px);
   overflow: hidden;
-  transition: none; /* Без перехода по умолчанию */
+  transition: none;
   margin: 0;
   display: block;
 }
@@ -286,9 +287,9 @@
 .service-item.active p {
   opacity: 1;
   max-height: 300px;
-  transition: opacity 0.5s ease, max-height 0.5s ease; /* Включаем плавность только при активации */
+  transform: translateY(0);
+  transition: opacity 0.8s ease, max-height 0.8s ease, transform 0.8s ease;
 }
-
 footer {
   background: linear-gradient(to left, #222222, #dadada); /* Градиентный фон */
   color: white;
