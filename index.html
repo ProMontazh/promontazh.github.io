@@ -332,6 +332,24 @@ footer {
 .service-item:nth-child(4) {
     animation-delay: 6.4s; /* Задержка для четвертого элемента */
 }
+        /* --- Центральная обертка для главных блоков --- */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Применяем её к нужным секциям */
+section.services,
+section#projects,
+section.about,
+section.contact {
+  position: relative;
+}
+
+/* Оборачиваем содержимое секций в .wrapper через JS или вручную */
+
    </style>
 </head>
 <body>
