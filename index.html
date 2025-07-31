@@ -332,6 +332,37 @@ footer {
 .service-item:nth-child(4) {
     animation-delay: 6.4s; /* Задержка для четвертого элемента */
 }
+        /* Центрируем основные блоки после #projects */
+section#projects,
+.about,
+.contact,
+footer {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Убираем возможные трансформации */
+section#projects,
+.about,
+.contact {
+  transform: none !important;
+  position: static !important;
+}
+
+/* Сбрасываем flex-маргины у галереи */
+.gallery {
+  margin: 0;
+}
+
+/* Модалка по центру */
+.modal {
+  justify-content: center;
+  align-items: center;
+}
+
    </style>
 </head>
 <body>
