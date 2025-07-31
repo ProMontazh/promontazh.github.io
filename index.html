@@ -278,7 +278,7 @@
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity 0.5s ease, max-height 0.5s ease;
+  transition: none; /* Без перехода по умолчанию */
   margin: 0;
   display: block;
 }
@@ -286,13 +286,7 @@
 .service-item.active p {
   opacity: 1;
   max-height: 300px;
-}
-
-/* Активное состояние — плавное появление */
-.service-item.active p {
-  opacity: 1;
-  max-height: 300px; /* Достаточно для любого описания */
-  transform: translateY(0);
+  transition: opacity 0.5s ease, max-height 0.5s ease; /* Включаем плавность только при активации */
 }
 
 footer {
