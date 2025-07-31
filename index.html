@@ -189,12 +189,12 @@
 }
 /* Основной контейнер галереи */
 #projects-gallery {
-  opacity: 0;
-  visibility: hidden;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease;
-  margin: 0 auto; /* Центрируем галерею */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 #projects-gallery.visible {
   opacity: 1;
