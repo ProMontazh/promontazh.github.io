@@ -466,21 +466,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 // Открытие галереи
-  if (projectsHeader && gallery) {
-    projectsHeader.addEventListener("click", () => {
-      gallery.classList.toggle("visible");
-
-      if (gallery.classList.contains("visible")) {
-        images.forEach((img, index) => {
-          setTimeout(() => {
-            img.classList.add("visible");
-          }, index * 100);
-        });
-      } else {
-        images.forEach((img) => img.classList.remove("visible"));
-      }
+ projectsHeader.addEventListener("click", () => {
+  if (gallery.classList.contains("visible")) {
+    gallery.style.opacity = "0";
+    setTimeout(() => {
+      gallery.classList.remove("visible");
+      images.forEach((img) => img.classList.remove("visible"));
+    }, 500); // Задержка соответствует CSS transition: 0.5s
+  } else {
+    gallery.classList.add("visible");
+    setTimeout(() => {
+      gallery.style.opacity = "1";
+    }, 10); // Чуть позже, чтобы transition сработал
+    images.forEach((img, index) => {
+      setTimeout(() => {
+        img.classList.add("visible");
+      }, index * 100);
     });
   }
+});
+
 // Открытие изображения в модальном окне
   if (images && modal && modalImg) {
     images.forEach((img) => {
@@ -503,4 +508,5 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
