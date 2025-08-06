@@ -233,6 +233,30 @@
     width: calc(10% - 8px); /* 5 изображений в строке на десктопе */
   }
 }
+        .projects-carousel {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
+}
+
+#projects-gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: opacity 0.5s ease;
+}
+
+.gallery-image {
+  flex: 0 0 auto;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .gallery-image {
+    width: calc(80% - 5px);
+    margin-right: 8px;
+  }
+}
+
 /* Модальное окно */
 .modal {
   display: none;
@@ -383,7 +407,7 @@ footer {
         <p>Комплексні системи охорони Ajax, захистять від несанкціонованого проникнення та збережуть майно.</p>
     </div>
     <section id="projects">
-    <div class="projects-inner">
+    <div class="projects-carousel">
   <h2 id="projects-header" class="clickable">Наші проекти</h2>
   <div id="projects-gallery" class="hidden">
     <img src="001.jpeg" class="gallery-image" alt="Проект 1">
@@ -508,6 +532,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
