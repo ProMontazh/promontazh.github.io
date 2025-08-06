@@ -6,7 +6,7 @@
     <meta name="google-site-verification" content="RAtQopuHSf6QHzpTOjiRLz0c50dcHh6ThSFb9dMf16Y">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Встановлення охоронних систем м. Харків. Монтаж відеоспостереження, сигналізації, домофонів та контролю доступу. Установка охранных систем. Харьков. Монтаж видеонаблюдения, сигнализации, домофонов и контроля доступа.">
-    <meta name="keywords" content="установка видеонаблюдения харьков, монтаж видеонаблюдения харьков, установка камер, установка домофона, установить видеонаблюдение харьков, установить охранную сигнализацию харьков, установка сигнализации харьков, монтаж охранной сигнализации, монтаж домофона харьков, установить домофон харьков, монтажник видеонаблюдения харьков, установщик домофонов харьков, проммонтаж, промонтаж, промонтаж харьков, монтаж відеоспостереження Харків, охоронна сигналізація Харків, система контролю доступу, встановлення домофонів, промонтаж Харків">
+    <meta name="keywords" content="Харьков, проммонтаж, промонтаж, промонтаж харьков, установка видеонаблюдения харьков, монтаж видеонаблюдения харьков, установка камер, установка домофона, установить видеонаблюдение харьков, установить охранную сигнализацию харьков, установка сигнализации харьков, монтаж охранной сигнализации, монтаж домофона харьков, установить домофон харьков, монтажник видеонаблюдения харьков, установщик домофонов харьков, монтаж відеоспостереження Харків, охоронна сигналізація Харків, система контролю доступу, встановлення домофонів, промонтаж Харків">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title>ПроМонтаж – професійний монтаж систем безпеки. Відеоспостереження, охоронної сигналізації, систем контролю та управління доступу</title>
     <style>
@@ -196,63 +196,67 @@
 
 /* Основной контейнер галереи */
 #projects-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
-  padding: 0;
-  margin: 0 auto;
   opacity: 0;
   visibility: hidden;
   height: 0;
   overflow: hidden;
-  transition: opacity 0.5s ease, height 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease;
+  margin: 0 auto; /* Центрируем галерею */
 }
-
 #projects-gallery.visible {
   opacity: 1;
   visibility: visible;
   height: auto;
+  transform: translateY(0);
 }
-
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0; /* Убираем отступы по краям */
+  margin: 0; /* Убираем отступы по краям */
+}
 .gallery-image {
   flex: 1 1 auto;
-  width: calc(50% - 5px);
+  width: calc(50% - 5px); /* По 2 изображения в строке */
   height: auto;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 .gallery-image.visible {
   opacity: 1;
   transform: scale(1);
 }
-
-.projects-carousel {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: 0 auto;
-}
-
 @media (min-width: 768px) {
   .gallery-image {
-    width: calc(20% - 8px); /* 5 в строку */
+    width: calc(10% - 8px); /* 5 изображений в строке на десктопе */
   }
 }
-
-@media (max-width: 768px) {
-  #projects-gallery {
-    flex-wrap: nowrap;
-  }
-
-  .gallery-image {
-    flex: 0 0 auto;
-    width: calc(80% - 5px);
-    margin-right: 8px;
-  }
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
 }
-
+.modal-content {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
 .services {
   padding: 60px 20px;
   text-align: center;
@@ -299,7 +303,7 @@ footer {
   width: 100%; /* Растягиваем футер на всю ширину страницы */
 }
 .messenger-icons {
-  margin-top: 30px 10; /* Уменьшенный отступ сверху */
+  margin-top: 30px 0; /* Уменьшенный отступ сверху */
 }
 .messenger-icons img {
   width: 40px;
@@ -338,7 +342,7 @@ footer {
     animation-delay: 6.4s; /* Задержка для четвертого элемента */
 }
 .projects-inner {
-  
+
   margin: 0 auto;
   padding: 0 5px;
   box-sizing: border-box;
@@ -379,7 +383,7 @@ footer {
         <p>Комплексні системи охорони Ajax, захистять від несанкціонованого проникнення та збережуть майно.</p>
     </div>
     <section id="projects">
-    <div class="projects-carousel">
+    <div class="projects-inner">
   <h2 id="projects-header" class="clickable">Наші проекти</h2>
   <div id="projects-gallery" class="hidden">
     <img src="001.jpeg" class="gallery-image" alt="Проект 1">
@@ -462,26 +466,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 // Открытие галереи
- projectsHeader.addEventListener("click", () => {
-  if (gallery.classList.contains("visible")) {
-    gallery.style.opacity = "0";
-    setTimeout(() => {
-      gallery.classList.remove("visible");
-      images.forEach((img) => img.classList.remove("visible"));
-    }, 500); // Задержка соответствует CSS transition: 0.5s
-  } else {
-    gallery.classList.add("visible");
-    setTimeout(() => {
-      gallery.style.opacity = "1";
-    }, 10); // Чуть позже, чтобы transition сработал
-    images.forEach((img, index) => {
-      setTimeout(() => {
-        img.classList.add("visible");
-      }, index * 100);
+  if (projectsHeader && gallery) {
+    projectsHeader.addEventListener("click", () => {
+      gallery.classList.toggle("visible");
+
+      if (gallery.classList.contains("visible")) {
+        images.forEach((img, index) => {
+          setTimeout(() => {
+            img.classList.add("visible");
+          }, index * 100);
+        });
+      } else {
+        images.forEach((img) => img.classList.remove("visible"));
+      }
     });
   }
-});
-
 // Открытие изображения в модальном окне
   if (images && modal && modalImg) {
     images.forEach((img) => {
