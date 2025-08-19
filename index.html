@@ -43,14 +43,19 @@
             overflow-x: hidden;
             }
     header {
-    background: linear-gradient(to right, #222222, #dadada); rgba(0, 0, 0, 0.3); /* Градиентный фон */
-    backdrop-filter: blur(10px);       /* размывает фон под шапкой */
-    color: white;
-    margin: 0px;    
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+     /* полупрозрачный градиент */
+  background: linear-gradient(to right, rgba(34, 34, 34, 0.6), rgba(218, 218, 218, 0.4));
+
+  /* эффект стекла */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: white;
+  margin: 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
     }
     .logo {
     position: absolute;
@@ -537,6 +542,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
