@@ -43,17 +43,15 @@
             overflow-x: hidden;
             }
     header {
-    background: linear-gradient(to right, #222222, #dadada); /* Градиентный фон */
+    background: linear-gradient(to right, #222222, #dadada); rgba(0, 0, 0, 0.3); /* Градиентный фон */
+    backdrop-filter: blur(10px);       /* размывает фон под шапкой */
     color: white;
     margin: 0px;    
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.3);   /* прозрачность */
-    backdrop-filter: blur(10px);       /* размывает фон под шапкой */
-    
-        }
+    }
     .logo {
     position: absolute;
     top: 5px;
@@ -539,6 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
