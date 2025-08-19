@@ -43,18 +43,14 @@
             overflow-x: hidden;
             }
     header {
-  background: linear-gradient(
-    to right, 
-    rgba(34, 34, 34, 0.8),   /* тёмный, но с прозрачностью */
-    rgba(218, 218, 218, 0.4) /* светлый, ещё более прозрачный */
-  );
-  color: white;
-  margin: 0;    
-  padding: 5px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    background: linear-gradient(to right, #222222, #dadada); /* Градиентный фон */
+    color: white;
+    margin: 0px;    
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
     .logo {
     position: absolute;
     top: 5px;
@@ -120,7 +116,7 @@
             background-color: rgba(0, 0, 0, 0.05); /* Полупрозрачный черный фон */
             background-image: url('fonkh.jpg'); /* Фонове зображення */
             background-size: cover; /* Розмір фону */
-            background-position: top; /* Центрування фону */
+            background-position: center; /* Центрування фону */
             height: 30vh; /* Висота 33% від висоти вікна */
             text-align: center;
             color: rgb(29, 29, 29);
@@ -540,6 +536,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
-
-
-
