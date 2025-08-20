@@ -36,33 +36,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title>ProМонтаж – встановлення систем безпеки. Відеоспостереження, охоронної сигналізації, систем контролю та управління доступу</title>
     <style>
-       body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    overflow-x: hidden;
-    background: #fff; /* общий фон страницы */
-}
-
-/* шапка с полупрозрачным градиентом */
-header {
-    background: linear-gradient(
-        to right,
-        rgba(34, 34, 34, 0.75),   /* тёмный край */
-        rgba(218, 218, 218, 0.55) /* светлый край */
-    );
+        body {
+            font-family: 'Open Sans', sans-serif; /* Применяем Open Sans для всего текста */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            }
+    header {
+    background: linear-gradient(to right, #222222, #dadada); /* Градиентный фон */
     color: white;
-    margin: 0;
-    padding: 12px 20px;
+    margin: 0px;    
+    padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 10;
-
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-}
+    }
     .logo {
     position: absolute;
     top: 5px;
@@ -124,18 +112,19 @@ header {
         .black {
             color: black;
         }
-        /* hero с фоном */
-.hero {
-    position: relative;
-    background: url('fonkh.jpg') no-repeat cover top;
-    background-size: center;
-    height: 33vh; /* фон занимает ровно 40% экрана */
-    margin-top: -80px;   /* тянем под шапку */
-    padding-top: 120px;  /* отступ, чтобы текст не залез в шапку */
-    text-align: center;
-    color: white;
-    z-index: 1;
-}
+        .hero {
+            background-color: rgba(0, 0, 0, 0.05); /* Полупрозрачный черный фон */
+            background-image: url('fonkh.jpg'); /* Фонове зображення */
+            background-size: cover; /* Розмір фону */
+            background-position: center; /* Центрування фону */
+            background-position: top; /* Центрування фону */
+            height: 30vh; /* Висота 33% від висоти вікна */
+            text-align: center;
+            color: rgb(29, 29, 29);
+            position: relative;
+            animation: fadeIn 3s ease-in-out;
+            padding: 40px; /* Відступи всередині секції */
+            }
         @media (max-width: 768px) {
                .hero {
                 background-image: url('fonkh.jpg'); /* Фонове зображення для мобільної версії */
@@ -548,11 +537,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
