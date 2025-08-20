@@ -126,15 +126,14 @@ header {
         }
         /* hero с фоном */
 .hero {
+    position: relative;
     background: url('fonkh.jpg') no-repeat center top;
     background-size: cover;
-    min-height: 70vh;
-    height: 20vh; /* фон занимает ровно 40% экрана */
-    margin-top: -80px;   /* тянем секцию под шапку */
-    padding-top: 140px;  /* чтобы текст не прятался за шапкой */
+    height: 30vh; /* фон занимает ровно 40% экрана */
+    margin-top: -80px;   /* тянем под шапку */
+    padding-top: 120px;  /* отступ, чтобы текст не залез в шапку */
     text-align: center;
     color: white;
-    position: relative;
     z-index: 1;
 }
         @media (max-width: 768px) {
@@ -549,6 +548,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
