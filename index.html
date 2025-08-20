@@ -37,19 +37,29 @@
     <title>ProМонтаж – встановлення систем безпеки. Відеоспостереження, охоронної сигналізації, систем контролю та управління доступу</title>
     <style>
         body {
-            font-family: 'Open Sans', sans-serif; /* Применяем Open Sans для всего текста */
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            }
-    header {
-    background: linear-gradient(to right, #222222, #dadada); /* Градиентный фон */
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+
+    background: url('fonkh.jpg') no-repeat center top; /* фон с самого верха */
+    background-size: cover;
+    }
+    /* Шапка с полупрозрачным градиентом */
+header {
+    background: linear-gradient(to right,
+                rgba(34, 34, 34, 0.85),   /* тёмный край */
+                rgba(218, 218, 218, 0.85) /* светлый край */
+              );
     color: white;
-    margin: 0px;    
+    margin: 0;
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(4px); /* красивый эффект стекла */
     }
     .logo {
     position: absolute;
@@ -536,5 +546,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
