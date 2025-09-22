@@ -533,6 +533,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+    document.addEventListener("DOMContentLoaded", () => {
+  const serviceItems = document.querySelectorAll(".service-item");
+
+  // SEO-тексты под каждой услугой
+  const seoTexts = [
+    "Монтаж сучасних систем відеоспостереження Dahua, Hikvision, IMOU. Керування камерами онлайн, захист майна, контроль доступу.",
+    "Системи контролю доступу ZKTeko, Atis, SEVEN. Обмеження доступу сторонніх осіб, безпека приміщень, інтеграція з відеоспостереженням.",
+    "Охоронні сигналізації Ajax. Захист від несанкціонованого проникнення, інтеграція з додатками, надійний контроль об’єкта."
+  ];
+
+  serviceItems.forEach((item, index) => {
+    const seo = document.createElement("p");
+    seo.textContent = seoTexts[index] || "";
+    seo.style.display = "none"; // изначально скрыто
+    seo.style.marginTop = "5px";
+    seo.style.lineHeight = "1.6";
+    seo.style.fontSize = "0.95rem";
+    item.appendChild(seo);
+
+    // Добавляем кнопку "Читати більше"
+    const btn = document.createElement("button");
+    btn.textContent = "Читати більше";
+    btn.style.marginTop = "5px";
+    btn.style.backgroundColor = "#f44336";
+    btn.style.color = "white";
+    btn.style.border = "none";
+    btn.style.padding = "5px 10px";
+    btn.style.borderRadius = "4px";
+    btn.style.cursor = "pointer";
+    item.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+      if (seo.style.display === "none") {
+        seo.style.display = "block";
+        btn.textContent = "Згорнути";
+      } else {
+        seo.style.display = "none";
+        btn.textContent = "Читати більше";
+      }
+    });
+  });
+});
 </script>
 </body>
 </html>
+
