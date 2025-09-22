@@ -449,38 +449,38 @@ footer {
     <span class="close">&times;</span>
      <img class="modal-content" src="modal-content" alt="Изображение">
 </div>
-</section>
-<section id="seo-text" style="padding: 40px 20px; max-width: 1000px; margin: auto; line-height: 1.6; font-family: Open Sans, sans-serif;">
-<section class="about">
-    <h2>О компанії <span class="red">Pro</span><span class="black">Монтаж</span></h2>
-    <div id="seo-content" style="display: none; margin-top: 20px;">
+<section id="seo-text" style="padding: 40px 20px; max-width: 1000px; margin: auto; line-height: 1.6; font-family: 'Open Sans', sans-serif;">
+  <section class="about">
+    <h2 id="show-about" style="cursor:pointer;">О компанії <span class="red">Pro</span><span class="black">Монтаж</span></h2>
+    <div id="seo-content" style="display: none; margin-top: 20px; opacity: 0; transition: opacity 0.5s ease;">
         <p>Компанія <strong>ПроМонтаж</strong> надає професійні послуги з встановлення відеоспостереження та охоронних систем у Харкові та області. Ми працюємо як з приватними клієнтами, так і з бізнесом — від квартир і приватних будинків до магазинів, офісів та складів.</p>
     
-    <h3>Чому обирають нас</h3>
-    <ul>
-      <li>Досвідчені фахівці з більш ніж 10-річним стажем.</li>
-      <li>Використовуємо лише перевірене обладнання (IP-камери, DVR/NVR-регістратори, сигналізація).</li>
-      <li>Швидкий та акуратний монтаж.</li>
-      <li>Гарантія на всі роботи та обладнання.</li>
-    </ul>
+        <h3>Чому обирають нас</h3>
+        <ul>
+          <li>Досвідчені фахівці з більш ніж 10-річним стажем.</li>
+          <li>Використовуємо лише перевірене обладнання (IP-камери, DVR/NVR-регістратори, сигналізація).</li>
+          <li>Швидкий та акуратний монтаж.</li>
+          <li>Гарантія на всі роботи та обладнання.</li>
+        </ul>
     
-    <h3>Наші послуги</h3>
-    <ul>
-      <li><strong>Встановлення відеоспостереження у Харкові</strong> — камери всередині та зовні приміщень.</li>
-      <li><strong>Монтаж охоронної сигналізації</strong> — захист дому, офісу, складу.</li>
-      <li><strong>Системи контролю доступу</strong> — замки, зчитувачі, домофони.</li>
-      <li><strong>Обслуговування та налаштування обладнання</strong>.</li>
-    </ul>
+        <h3>Наші послуги</h3>
+        <ul>
+          <li><strong>Встановлення відеоспостереження у Харкові</strong> — камери всередині та зовні приміщень.</li>
+          <li><strong>Монтаж охоронної сигналізації</strong> — захист дому, офісу, складу.</li>
+          <li><strong>Системи контролю доступу</strong> — замки, зчитувачі, домофони.</li>
+          <li><strong>Обслуговування та налаштування обладнання</strong>.</li>
+        </ul>
     
-    <h3>Скільки коштує встановлення відеоспостереження?</h3>
-    <p>Ціна залежить від кількості камер, типу обладнання та складності об’єкта. Ми підберемо оптимальний варіант під ваш бюджет.</p>
+        <h3>Скільки коштує встановлення відеоспостереження?</h3>
+        <p>Ціна залежить від кількості камер, типу обладнання та складності об’єкта. Ми підберемо оптимальний варіант під ваш бюджет.</p>
     
-    <h3>Замовте встановлення прямо зараз</h3>
-    <p>Бажаєте надійно захистити свій дім або бізнес?<br>
-    Дзвоніть за телефоном: <a href="tel:+380935016040"><strong>093 501 60 40</strong></a> або залиште заявку на сайті.</p>
+        <h3>Замовте встановлення прямо зараз</h3>
+        <p>Бажаєте надійно захистити свій дім або бізнес?<br>
+        Дзвоніть за телефоном: <a href="tel:+380935016040"><strong>093 501 60 40</strong></a> або залиште заявку на сайті.</p>
     
-    <p><strong>Встановлення відеоспостереження та охоронних систем у Харкові.</strong></p>
-  </div>
+        <p><strong>Встановлення відеоспостереження та охоронних систем у Харкові.</strong></p>
+    </div>
+  </section>
 </section>
 <section class="contact">
     <h2>Контакти:</h2>
@@ -560,7 +560,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
+document.getElementById("show-about").addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = document.getElementById("seo-content");
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        setTimeout(() => { content.style.opacity = 1; }, 50); // плавное появление
+    } else {
+        content.style.opacity = 0;
+        setTimeout(() => { content.style.display = "none"; }, 500); // плавное исчезновение
+    }
+});
 </script>
 </body>
 </html>
+
