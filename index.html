@@ -249,6 +249,17 @@
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
+.about, 
+.contact {
+  text-align: center;   /* центрируем текст и заголовки */
+  margin: 0 auto;
+}
+
+.contact .messenger-icons {
+  display: flex;
+  justify-content: center; /* иконки мессенджеров по центру */
+  gap: 15px; /* расстояние между иконками */
+}
 
 /* Основной контейнер галереи */
 #projects-gallery {
@@ -566,6 +577,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
