@@ -545,10 +545,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+const closeBtn = document.querySelector(".close");
+
+closeBtn.addEventListener("click", () => {
+  document.getElementById("myModal").style.display = "none";
+});
 
 </script>
 </body>
 </html>
+
 
 
 
