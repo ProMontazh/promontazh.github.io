@@ -343,19 +343,20 @@
 /* Описание услуг изначально скрыто */
 .service-item p {
   opacity: 0;
-  max-height: 0;
+  max-width: 700px;   /* уже, чем было (900px) */
+  margin: 0 auto;     /* центрирование по горизонтали */
+  text-align: center; /* выравнивание текста */
+  line-height: 1.6;   /* удобное межстрочное расстояние */
   transform: translateY(0px);
   overflow: hidden;
   transition: none;
-  margin: 0;
   display: block;
 }
-
 .service-item.active p {
   opacity: 1;
   max-height: 300px;
   transform: translateY(0);
-  transition: opacity 2s ease, max-height 0s ease, transform 0s ease;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
 }
 footer {
   background: linear-gradient(to left, #222222, #dadada);
@@ -577,6 +578,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
