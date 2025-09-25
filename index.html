@@ -335,7 +335,7 @@
 .service-item h3 {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  margin-bottom: 5px; /* Уменьшаем отступ между заголовком и описанием */
+ margin-bottom: 5px; /* Уменьшаем отступ между заголовком и описанием */
 }
 .service-item h3:hover {
   transform: scale(1.1);
@@ -343,20 +343,19 @@
 /* Описание услуг изначально скрыто */
 .service-item p {
   opacity: 0;
-  max-width: 700px;   /* уже, чем было (900px) */
-  margin: 0 auto;     /* центрирование по горизонтали */
-  text-align: center; /* выравнивание текста */
-  line-height: 1.6;   /* удобное межстрочное расстояние */
+  max-height: 0;
   transform: translateY(0px);
   overflow: hidden;
   transition: none;
+  margin: 0;
   display: block;
 }
+
 .service-item.active p {
   opacity: 1;
   max-height: 300px;
   transform: translateY(0);
-  transition: opacity 0.5s ease, max-height 0.5s ease;
+  transition: opacity 2s ease, max-height 0s ease, transform 0s ease;
 }
 footer {
   background: linear-gradient(to left, #222222, #dadada);
@@ -578,11 +577,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
