@@ -344,18 +344,20 @@
 .service-item p {
   opacity: 0;
   max-height: 0;
-  transform: translateY(0px);
   overflow: hidden;
-  transition: none;
-  margin: 0;
-  display: block;
+  margin: 0 auto;        /* центрируем */
+  display: none;         /* полностью убираем из потока */
+  max-width: 700px;      /* ограничение ширины текста */
+  text-align: center;
+  line-height: 1.6;
+  transition: opacity 0.5s ease;
 }
-
+/* При открытии услуги */
 .service-item.active p {
+  display: block;        /* возвращаем блок */
   opacity: 1;
-  max-height: 300px;
-  transform: translateY(0);
-  transition: opacity 2s ease, max-height 0s ease, transform 0s ease;
+  max-height: 500px;     /* достаточно для текста */
+  transition: opacity 0.5s ease;
 }
 footer {
   background: linear-gradient(to left, #222222, #dadada);
@@ -577,5 +579,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
