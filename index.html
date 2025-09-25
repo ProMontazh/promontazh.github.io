@@ -343,14 +343,14 @@
 /* Описание услуг изначально скрыто */
 .service-item p {
   opacity: 0;
-  max-width: 900px; /* текст уже */
+  max-width: 900px;      /* ограничиваем ширину */
+  margin: 0 auto;        /* центрируем по горизонтали */
+  text-align: center;    /* выравнивание текста */
   transform: translateY(0px);
   overflow: hidden;
   transition: none;
-  margin: 0;
   display: block;
 }
-
 .service-item.active p {
   opacity: 1;
   max-height: 300px;
@@ -577,6 +577,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
